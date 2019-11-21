@@ -1,5 +1,6 @@
 package com.example.converstationv01;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,8 +21,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void sendMessage(View view) {
-        // Do something in response to button
+    public void openSchedule(View view) {
+        Intent intent = new Intent(this, schedule.class);
+
+        startActivity(intent);
     }
 
 }
