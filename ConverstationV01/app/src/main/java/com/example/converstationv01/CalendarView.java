@@ -34,7 +34,7 @@ public class CalendarView extends View
         planPaint.setColor(getResources().getColor(R.color.colorAccent));
 
         highlightPaint = new Paint();
-        highlightPaint.setColor(getResources().getColor(R.color.colorPrimary));
+        highlightPaint.setColor(Color.parseColor("#ff3232"));
         highlightPaint.setStyle(Paint.Style.STROKE);
         highlightPaint.setStrokeWidth(16);
 
