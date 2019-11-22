@@ -12,9 +12,11 @@ import androidx.appcompat.widget.Toolbar;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -34,15 +36,12 @@ public class schedule extends AppCompatActivity {
        plans = new ArrayList<Plan>();
 
         FileInputStream fis = null;
-        System.out.println("step 1");
         try {
             fis = openFileInput("ConverStationPlans");
             Scanner scanner = new Scanner(fis);
             scanner.useDelimiter(",");
-            System.out.println("step 2");
             while(scanner.hasNext())
             {
-                System.out.println("step 3");
                 int day = Integer.parseInt(scanner.next());
                 int start = Integer.parseInt(scanner.next());
                 int duration = Integer.parseInt(scanner.next());
@@ -58,22 +57,22 @@ public class schedule extends AppCompatActivity {
        {
            int start = getIntent().getIntExtra("start", -1);
            int duration = getIntent().getIntExtra("duration", -1);
-           plans.add(new Plan(day, start, duration));
+           Plan newPlan = new Plan(day, start, duration);
+           for(int i = plans.size() - 1; i >= 0; i--)
+           {
+               if(newPlan.overlaps(plans.get(i)))
+               {
+                   newPlan.combine(plans.get(i));
+                   plans.remove(i);
+               }
+           }
+           plans.add(newPlan);
            savePlans();
        }
 
-       String[] planStrings = new String[plans.size()];
-        for(int i = 0; i < plans.size(); i++)
-        {
-            Plan plan = plans.get(i);
-            planStrings[i] = plan.getDayString() + " " + plan.getStartString() + " to " + plan.getEndString();
-        }
-
-       planList = findViewById(R.id.planList);
-        ListAdapter planListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, planStrings);
-        planList.setAdapter(planListAdapter);
-
-
+       calendarView = findViewById(R.id.calendarView);
+       calendarView.setPlans(plans);
+       calendarView.setDeleteButton((Button) findViewById(R.id.deleteTime));
     }
 
     @Override
@@ -84,7 +83,7 @@ public class schedule extends AppCompatActivity {
     }
 
     ArrayList<Plan> plans;
-    ListView planList;
+    CalendarView calendarView;
 
 
     public void openAddTime(View view)
@@ -110,5 +109,16 @@ public class schedule extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void deletePlan(View view)
+    {
+        Plan plan = calendarView.getSelected();
+        if(plan == null) return;
+        plans.remove(plan);
+        calendarView.setPlans(plans);
+        savePlans();
+        Toast toast = Toast.makeText(this, "Time Deleted", Toast.LENGTH_LONG);
+        toast.show();
     }
 }

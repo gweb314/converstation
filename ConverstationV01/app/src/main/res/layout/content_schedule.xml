@@ -8,26 +8,72 @@
     tools:context=".schedule"
     tools:showIn="@layout/activity_schedule">
 
-    <ListView
-        android:id="@+id/planList"
-        android:layout_width="244dp"
+    <TextView
+        android:id="@+id/plannerPrompt"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="12dp"
+        android:text="Enter the times you'd like to use ConverStation.\nWe'll send you reminder notifications during these times."
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/calendarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
+        android:text="ConverStation Planner"
+        android:textSize="32dp"
         />
 
-
-    <Button
-        android:id="@+id/AddNewTime"
-        android:layout_width="244dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="50dp"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarTitle"
+        app:layout_constraintBottom_toTopOf="@+id/addNewTime"
+        app:layout_constraintHorizontal_bias="0.497">
+
+        <com.example.converstationv01.CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </ScrollView>>
+
+    <com.example.converstationv01.DateBar
+        android:layout_width="0dp"
+        android:layout_height="80px"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarTitle"
+        app:layout_constraintHorizontal_bias="0.497"/>
+
+    <Button
+        android:id="@+id/addNewTime"
+        android:layout_width="244dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/deleteTime"
         app:layout_constraintHorizontal_bias="0.497"
         android:background="@color/colorAccent"
         android:textColor="@android:color/white"
@@ -35,6 +81,24 @@
         android:textAllCaps="false"
         android:textSize="20sp"
         android:onClick="openAddTime"
+        />
+
+    <Button
+        android:id="@+id/deleteTime"
+        android:layout_width="244dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/secondary_text_dark"
+        android:text="Delete Time"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:clickable="false"
+        android:onClick="deletePlan"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

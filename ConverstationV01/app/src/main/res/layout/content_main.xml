@@ -22,7 +22,7 @@
     <Button
         android:id="@+id/button"
         android:layout_width="244dp"
-        android:layout_height="52dp"
+        android:layout_height="104dp"
         android:layout_marginTop="32dp"
         android:background="@color/colorPrimary"
         android:text="Start A Conversation"
@@ -57,7 +57,7 @@
         android:layout_marginTop="16dp"
         android:background="@color/colorAccent"
         android:onClick="openSchedule"
-        android:text="Schedule"
+        android:text="ConverStation Planner"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"

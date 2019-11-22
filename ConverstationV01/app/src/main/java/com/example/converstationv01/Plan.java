@@ -42,7 +42,7 @@ public class Plan
     {
         if(day != other.day) return false;
         if(start > other.getEndInt()) return false;
-        if(getEndInt() < other.getEndInt()) return false;
+        if(getEndInt() < other.getStartInt()) return false;
         return true;
     }
 
