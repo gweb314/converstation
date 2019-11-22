@@ -14,7 +14,7 @@ public class DateBar extends View
     {
         super(context, attrset);
         backgroundPaint = new Paint();
-        backgroundPaint.setColor(getResources().getColor(android.R.color.secondary_text_dark));
+        backgroundPaint.setColor(getResources().getColor(R.color.colorAccent));
 
         dividerPaint = new Paint();
         dividerPaint.setColor(getResources().getColor(android.R.color.darker_gray));
