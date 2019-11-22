@@ -8,4 +8,33 @@
     tools:context=".schedule"
     tools:showIn="@layout/activity_schedule">
 
+    <ListView
+        android:id="@+id/planList"
+        android:layout_width="244dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        />
+
+
+    <Button
+        android:id="@+id/AddNewTime"
+        android:layout_width="244dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"
+        android:text="Add New Time"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:onClick="openAddTime"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
