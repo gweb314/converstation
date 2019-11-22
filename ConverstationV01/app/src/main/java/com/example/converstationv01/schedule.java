@@ -33,6 +33,7 @@ public class schedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
 
+
        plans = new ArrayList<Plan>();
 
         FileInputStream fis = null;
