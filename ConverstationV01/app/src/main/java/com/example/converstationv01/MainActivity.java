@@ -26,5 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+    public void meetNow(View view) {
+        Intent intent = new Intent(this, waiting.class);
 
+        startActivity(intent);
+    }
 }
