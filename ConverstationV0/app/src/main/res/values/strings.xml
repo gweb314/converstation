@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">ConverstationV0</string>
     <string name="title_activity_maps">Map</string>
+    <string name="dialog_message">Thank you for trying our hi-fi prototype for ConverStation!  Unfortunately the navigation feature is not fully implemented.  Click "Back" to return to the ConverStation Map.</string>
+    <string name="dialog_title">Thank you!</string>
 </resources>
