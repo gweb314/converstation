@@ -3,4 +3,15 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_schedule">schedule</string>
     <string name="finding_you_someone_to_chat_with">Finding you someone to chat with...</string>
+
+    <string-array name="weekdays">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+
 </resources>
