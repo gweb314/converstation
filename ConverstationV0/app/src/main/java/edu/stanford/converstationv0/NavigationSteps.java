@@ -2,6 +2,7 @@ package edu.stanford.converstationv0;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -283,6 +284,9 @@ public class NavigationSteps extends AppCompatActivity {
         }
     }
 
-
+    public void backToMap(View v) {
+        Intent myIntent = new Intent(NavigationSteps.this, MapsActivity.class);
+        NavigationSteps.this.startActivity(myIntent);
+    }
 
 }

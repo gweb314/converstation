@@ -34,7 +34,7 @@
         android:layout_height="0dp"
         android:layout_gravity="bottom"
         android:layout_weight="0.13"
-        android:background="@color/white">
+        android:background="@color/colorPrimary">
 
         <TextView
             android:id="@+id/textView"
@@ -44,7 +44,7 @@
             android:layout_marginLeft="20dp"
             android:text="START NAVIGATION"
             android:onClick="startNavigation"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/white"
             android:textSize="24sp" />
 
         <TextView
@@ -54,9 +54,10 @@
             android:text="╳"
             android:textSize="35sp"
             android:layout_gravity="right"
+            android:onClick="dontNavigate"
             android:layout_marginRight="40dp"
             android:gravity="center"
-            android:textColor="@color/lightGray" />
+            android:textColor="@color/white" />
 
     </android.support.design.widget.BottomNavigationView>
 

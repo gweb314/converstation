@@ -214,7 +214,7 @@ public class MapsActivity extends AppCompatActivity implements OnMyLocationButto
 
             BitmapDrawable bitmapdraw=locationDrawables.get(locationName);
             Bitmap b = bitmapdraw.getBitmap();
-            Bitmap smallMarker = Bitmap.createScaledBitmap(b, 342, 342, false);
+            Bitmap smallMarker = Bitmap.createScaledBitmap(b, 324, 342, false);
 
 
             Marker currentMarker = mMap.addMarker(new MarkerOptions().position(converStationLatLng).title(locationName).icon(BitmapDescriptorFactory.fromBitmap(smallMarker)));
@@ -380,9 +380,28 @@ public class MapsActivity extends AppCompatActivity implements OnMyLocationButto
     }
 
     public void startNavigation(View v) {
-        Intent myIntent = new Intent(MapsActivity.this, NavigationSteps.class);
-        myIntent.putExtra("StepSet", stepSets.get(targetLocation));
-        MapsActivity.this.startActivity(myIntent);
+        if (targetLocation.equals("Stanford D.School")) {
+            Intent myIntent = new Intent(MapsActivity.this, ArrivedAtGroupConversation.class);
+            MapsActivity.this.startActivity(myIntent);
+        } else {
+            Intent myIntent = new Intent(MapsActivity.this, NavigationSteps.class);
+            myIntent.putExtra("StepSet", stepSets.get(targetLocation));
+            MapsActivity.this.startActivity(myIntent);
+        }
+    }
+
+    public void dontNavigate(View v) {
+        navBar.setVisibility(View.INVISIBLE);
+        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                1.0f
+        );
+        mapContainer.setLayoutParams(param);
+        mPolyline.remove();
+        for (Marker currentMarker : converStationMarkers) {
+            currentMarker.setVisible(true);
+        }
     }
 
 }
