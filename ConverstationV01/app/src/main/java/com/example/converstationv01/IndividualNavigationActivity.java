@@ -6,21 +6,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class waiting extends AppCompatActivity {
+public class IndividualNavigationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_waiting);
+        setContentView(R.layout.activity_individual_navigation);
     }
-    /*
-    public void cancel(View view) {
-        finish();
-    }
-    */
 
-    public void findSomeone(View view) {
-        Intent intent = new Intent(this, FoundSomeoneActivity.class);
+    public void viewLocationInfo(View view) {
+        Intent intent = new Intent(this, LocationInfoActivity.class);
+
+        startActivity(intent);
+    }
+
+    public void arrive(View view) {
+        Intent intent = new Intent(this, IndividualArrivedActivity.class);
 
         startActivity(intent);
     }

@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PartnerProfile"></activity>
+        <activity android:name=".IndividualConversationActivity"></activity>
+        <activity android:name=".IndividualArrivedActivity" />
+        <activity android:name=".LocationInfoActivity" />
+        <activity android:name=".IndividualNavigationActivity" />
+        <activity android:name=".FoundSomeoneActivity" />
+        <activity android:name=".PartnerProfile" />
         <activity android:name=".waiting" />
         <activity android:name=".AddTimeActivity" />
         <activity

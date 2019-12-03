@@ -6,21 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class waiting extends AppCompatActivity {
+public class IndividualArrivedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_waiting);
+        setContentView(R.layout.activity_individual_arrived);
     }
-    /*
-    public void cancel(View view) {
-        finish();
-    }
-    */
 
-    public void findSomeone(View view) {
-        Intent intent = new Intent(this, FoundSomeoneActivity.class);
+    public void foundPartner(View view) {
+        Intent intent = new Intent(this, IndividualConversationActivity.class);
 
         startActivity(intent);
     }
