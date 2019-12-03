@@ -31,6 +31,20 @@
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <Button
+        android:id="@+id/profileTest"
+        android:layout_width="168dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="32dp"
+        android:text="Profile Test [placeholder]"
+        app:layout_constraintBottom_toTopOf="@id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:onClick="profileTest"
+        />
+
+    <Button
         android:id="@+id/button4"
         android:layout_width="168dp"
         android:layout_height="53dp"
