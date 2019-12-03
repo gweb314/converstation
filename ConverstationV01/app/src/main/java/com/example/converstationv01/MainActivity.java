@@ -21,8 +21,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void openMyProfile(View view) {
+        Intent intent = new Intent(this, MyProfileActivity.class);
+
+        startActivity(intent);
+    }
+    public void openSettings(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+
+        startActivity(intent);
+    }
     public void openSchedule(View view) {
         Intent intent = new Intent(this, schedule.class);
+
+        startActivity(intent);
+    }
+    public void openMap(View view) {
+        Intent intent = new Intent(this, GroupMapActivity.class);
 
         startActivity(intent);
     }

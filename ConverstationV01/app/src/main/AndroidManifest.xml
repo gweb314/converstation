@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IndividualConversationActivity"></activity>
+        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".MyProfileActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".GroupArrivedActivity" />
+        <activity android:name=".GroupNavigationActivity" />
+        <activity android:name=".GroupMembersActivity" />
+        <activity android:name=".GroupConversationActivity" />
+        <activity android:name=".ConverStationInfoActivity" />
+        <activity android:name=".GroupMapActivity" />
+        <activity android:name=".IndividualConversationActivity" />
         <activity android:name=".IndividualArrivedActivity" />
         <activity android:name=".LocationInfoActivity" />
         <activity android:name=".IndividualNavigationActivity" />

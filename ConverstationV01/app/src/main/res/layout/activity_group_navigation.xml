@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GroupNavigationActivity">
+
+    <TextView
+        android:id="@+id/pageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="32dp"
+        android:text="Group Navigation Page"
+        />
+
+    <Button
+        android:id="@+id/viewLocationInfo"
+        android:layout_width="168dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="32dp"
+        android:text="View Location Info"
+        app:layout_constraintBottom_toTopOf="@id/arrive"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:onClick="viewLocationInfo"
+        />
+
+    <Button
+        android:id="@+id/arrive"
+        android:layout_width="168dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="32dp"
+        android:text="Arrive"
+        app:layout_constraintBottom_toTopOf="@id/Cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:onClick="arrive"
+        />
+
+    <Button
+        android:id="@+id/Cancel"
+        android:layout_width="168dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="32dp"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:onClick="cancel"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

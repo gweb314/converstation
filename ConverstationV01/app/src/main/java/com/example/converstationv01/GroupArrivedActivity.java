@@ -6,27 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class IndividualConversationActivity extends AppCompatActivity {
+public class GroupArrivedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_individual_conversation);
+        setContentView(R.layout.activity_group_arrived);
     }
 
-    public void viewProfile(View view) {
-        Intent intent = new Intent(this, PartnerProfile.class);
-
-        startActivity(intent);
-    }
-
-    public void makeGroup(View view) {
+    public void foundGroup(View view) {
         Intent intent = new Intent(this, GroupConversationActivity.class);
 
         startActivity(intent);
     }
 
-    public void endConvo(View view) {
+    public void cancel(View view) {
         Intent intent = new Intent(this, MainActivity.class);
 
         startActivity(intent);

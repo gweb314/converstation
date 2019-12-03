@@ -6,28 +6,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class IndividualConversationActivity extends AppCompatActivity {
+public class ConverStationInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_individual_conversation);
+        setContentView(R.layout.activity_conver_station_info);
     }
 
-    public void viewProfile(View view) {
-        Intent intent = new Intent(this, PartnerProfile.class);
-
-        startActivity(intent);
-    }
-
-    public void makeGroup(View view) {
+    public void createGroup(View view) {
         Intent intent = new Intent(this, GroupConversationActivity.class);
 
         startActivity(intent);
     }
 
-    public void endConvo(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+    public void joinGroup(View view) {
+        Intent intent = new Intent(this, GroupNavigationActivity.class);
 
         startActivity(intent);
     }

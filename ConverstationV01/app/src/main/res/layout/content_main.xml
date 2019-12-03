@@ -52,7 +52,8 @@
         app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        android:onClick="openMap"/>
 
     <Button
         android:id="@+id/button3"
@@ -79,7 +80,8 @@
         app:layout_constraintEnd_toStartOf="@+id/imageButton3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageButton3"
-        app:srcCompat="@drawable/ic_settings_black_24dp" />
+        app:srcCompat="@drawable/ic_settings_black_24dp"
+        android:onClick="openSettings"/>
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -92,7 +94,8 @@
         app:layout_constraintStart_toEndOf="@+id/imageButton2"
         app:layout_constraintTop_toBottomOf="@+id/button3"
         app:layout_constraintVertical_bias="0.78"
-        app:srcCompat="@drawable/ic_account_box_black_24dp" />
+        app:srcCompat="@drawable/ic_account_box_black_24dp"
+        android:onClick="openMyProfile"/>
 
     <TextView
         android:id="@+id/textView"
