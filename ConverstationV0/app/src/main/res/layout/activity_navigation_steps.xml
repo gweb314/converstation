@@ -9,7 +9,7 @@
     android:background="@color/white"
     android:paddingTop="15dp">
 
-    <TextView
+    <Button
         android:layout_marginLeft="15dp"
         android:id="@+id/exit_text"
         android:layout_width="wrap_content"
@@ -18,7 +18,8 @@
         android:textColor="@color/white"
         android:background="@drawable/rounded_button_bg"
         android:onClick="backToMap"
-        android:text="EXIT" />
+        android:textAllCaps="false"
+        android:text="Exit" />
 
     <ImageView
         android:paddingTop="10dp"

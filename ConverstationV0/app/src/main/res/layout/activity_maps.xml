@@ -32,32 +32,24 @@
         android:id="@+id/navigationBar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_gravity="bottom"
+        android:gravity="center_vertical"
         android:layout_weight="0.13"
-        android:background="@color/colorPrimary">
+        android:background="@color/white">
 
-        <TextView
-            android:id="@+id/textView"
+        <Button
+            android:layout_marginTop="15dp"
+            android:id="@+id/start_nav_button"
             android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="START NAVIGATION"
+            android:text="Start Navigation"
             android:onClick="startNavigation"
             android:textColor="@color/white"
+            android:background="@drawable/rounded_button_bg"
+            android:textAllCaps="false"
             android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="╳"
-            android:textSize="35sp"
-            android:layout_gravity="right"
-            android:onClick="dontNavigate"
-            android:layout_marginRight="40dp"
-            android:gravity="center"
-            android:textColor="@color/white" />
 
     </android.support.design.widget.BottomNavigationView>
 

@@ -19,9 +19,7 @@ public class ProfilePicView extends View
         bgPaint = new Paint();
         bgPaint.setColor(getResources().getColor(R.color.colorAccent));
 
-        //size = 300;
-        size = 150;
-
+        size = 300;
 
         image = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic0)).getBitmap();
         image = image.copy(image.getConfig(), true);
