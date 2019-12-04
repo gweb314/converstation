@@ -27,7 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/partnerProfilePic"
         android:textSize="32dp"
-        android:text="Eli Vazquez"
+        android:text="[Name]"
         />
 
     <TextView
@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/partnerName"
         android:textSize="16dp"
-        android:text="He/Him"
+        android:text="[Pronouns]"
         />
 
     <TextView
@@ -66,7 +66,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/partnerMajorTitle"
         android:textSize="24dp"
-        android:text="Computer Science"
+        android:text="[Major]"
         />
 
     <TextView
@@ -92,7 +92,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/partnerMinorTitle"
         android:textSize="24dp"
-        android:text="Creative Writing"
+        android:text="[Minor]"
         />
 
     <TextView
