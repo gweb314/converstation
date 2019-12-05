@@ -66,6 +66,16 @@ public class TagEditView extends EditText {
         return retval;
     }
 
+    public void setTags(ArrayList<String> newTags)
+    {
+        String newText = "";
+        for(String s: newTags)
+        {
+            newText += s + " ";
+        }
+        setText(newText);
+    }
+
     @Override
     protected void onSelectionChanged(int selStart, int selEnd)
     {

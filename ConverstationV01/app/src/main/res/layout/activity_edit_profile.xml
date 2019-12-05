@@ -7,7 +7,7 @@
     tools:context=".EditProfileActivity">
 
     <com.example.converstationv01.ProfilePicView
-        android:id="@+id/myProfilePic"
+        android:id="@+id/editProfilePic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/myProfilePic"
+        app:layout_constraintTop_toBottomOf="@id/editProfilePic"
         android:hint="Name"
         android:inputType="text"
         android:imeOptions="actionDone"
@@ -88,7 +88,7 @@
         />
 
     <com.example.converstationv01.TagEditView
-        android:id="@+id/myInterests"
+        android:id="@+id/interestsEdit"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

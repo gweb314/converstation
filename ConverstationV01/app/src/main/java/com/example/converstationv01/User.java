@@ -32,7 +32,7 @@ public class User
             pronouns = "He/Him";
             major = "Computer Science";
             minor = "Creative Writing";
-            interests.add("Video Games");
+            interests.add("VideoGames");
             interests.add("Anime");
             email = "example0@stanford.edu";
 
@@ -44,7 +44,7 @@ public class User
             major = "SymSmy";
             minor = "";
             interests.add("D&D");
-            interests.add("Creative Writing");
+            interests.add("CreativeWriting");
             email = "example1@stanford.edu";
         }
         else if(num == 2)
@@ -53,7 +53,7 @@ public class User
             pronouns = "He/Him";
             major = "Art History";
             minor = "Japanese";
-            interests.add("Wine Tasting");
+            interests.add("WineTasting");
             interests.add("Rakugo");
             email = "example2@stanford.edu";
         }
@@ -63,7 +63,7 @@ public class User
             pronouns = "They/Them";
             major = "Undeclared";
             minor = "";
-            interests.add("Roller Skating");
+            interests.add("RollerSkating");
             interests.add("Carpentry");
             email = "example3@stanford.edu";
         }
