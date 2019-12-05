@@ -12,10 +12,14 @@ public class IndividualArrivedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual_arrived);
+        partner = new User(getIntent().getStringExtra("partner"));
     }
+
+    User partner;
 
     public void foundPartner(View view) {
         Intent intent = new Intent(this, IndividualConversationActivity.class);
+        intent.putExtra("partner", partner.toString());
 
         startActivity(intent);
     }

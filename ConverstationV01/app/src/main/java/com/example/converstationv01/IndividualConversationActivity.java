@@ -19,18 +19,22 @@ public class IndividualConversationActivity extends AppCompatActivity {
         profilePic = findViewById(R.id.partnerProfilePic);
 
         partnerName = findViewById(R.id.partnerName);
-        partnerPronouns = findViewById(R.id.partnerPronouns);
-        partnerMajorTitle = findViewById(R.id.partnerMajorTitle);
-        partnerMajor = findViewById(R.id.partnerMajor);
-        partnerMinorTitle = findViewById(R.id.partnerMinorTitle);
-        partnerMinor = findViewById(R.id.partnerMinor);
+        partnerInterests = findViewById(R.id.partnerInterests);
 
-        profilePic.setImage(partner.getImage());
+        fillInPartnerInfo();
     }
 
     ProfilePicView profilePic;
-    TextView partnerName, partnerPronouns, partnerMajorTitle, partnerMajor, partnerMinorTitle, partnerMinor;
+    TextView partnerName;
+    TagListView partnerInterests;
     User partner;
+
+    private void fillInPartnerInfo()
+    {
+        profilePic.setImage(partner.getImage());
+
+        partnerName.setText(partner.getName());
+}
 
     public void viewProfile(View view) {
         Intent intent = new Intent(this, PartnerProfile.class);

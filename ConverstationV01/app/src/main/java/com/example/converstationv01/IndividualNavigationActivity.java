@@ -12,7 +12,9 @@ public class IndividualNavigationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual_navigation);
+        partner = new User(getIntent().getStringExtra("partner"));
     }
+    User partner;
 
     public void viewLocationInfo(View view) {
         Intent intent = new Intent(this, LocationInfoActivity.class);
@@ -22,6 +24,7 @@ public class IndividualNavigationActivity extends AppCompatActivity {
 
     public void arrive(View view) {
         Intent intent = new Intent(this, IndividualArrivedActivity.class);
+        intent.putExtra("partner", partner.toString());
 
         startActivity(intent);
     }
