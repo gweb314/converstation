@@ -2,9 +2,19 @@ package com.example.converstationv01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class PartnerProfile extends AppCompatActivity {
 
@@ -24,12 +34,14 @@ public class PartnerProfile extends AppCompatActivity {
         partnerMajor = findViewById(R.id.partnerMajor);
         partnerMinorTitle = findViewById(R.id.partnerMinorTitle);
         partnerMinor = findViewById(R.id.partnerMinor);
+        partnerInterests = findViewById(R.id.partnerInterests);
 
         fillInPartnerInfo();
     }
 
     ProfilePicView profilePic;
     TextView partnerName, partnerPronouns, partnerMajorTitle, partnerMajor, partnerMinorTitle, partnerMinor;
+    TagListView partnerInterests;
     User partner;
 
     private void fillInPartnerInfo()
@@ -56,5 +68,7 @@ public class PartnerProfile extends AppCompatActivity {
             partnerMinorTitle.setVisibility(View.VISIBLE);
         }
         partnerMinor.setText(partner.getMinor());
+
+        partnerInterests.setTags(partner.getInterests());
     }
 }

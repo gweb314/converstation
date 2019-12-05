@@ -43,9 +43,9 @@ public class User
             pronouns = "She/Her";
             major = "SymSmy";
             minor = "";
-            interests.add("Video Games");
-            interests.add("Anime");
-            email = "example0@stanford.edu";
+            interests.add("D&D");
+            interests.add("Creative Writing");
+            email = "example1@stanford.edu";
         }
         else if(num == 2)
         {
