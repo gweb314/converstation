@@ -59,6 +59,13 @@ public class TagEditView extends EditText {
     TextWatcher textWatcher;
     String lastText;
 
+    public ArrayList<String> getTags()
+    {
+        ArrayList<String> retval = new ArrayList<String>();
+        for(String s: tags) retval.add(s);
+        return retval;
+    }
+
     @Override
     protected void onSelectionChanged(int selStart, int selEnd)
     {
