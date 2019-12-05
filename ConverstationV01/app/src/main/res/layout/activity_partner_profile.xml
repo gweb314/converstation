@@ -27,8 +27,86 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/partnerProfilePic"
+        android:textSize="32dp"
+        android:text="[Name]"
+        />
+
+    <TextView
+        android:id="@+id/partnerPronouns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/partnerName"
+        android:textSize="16dp"
+        android:text="[Pronouns]"
+        />
+
+    <TextView
+        android:id="@+id/partnerMajorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/partnerPronouns"
+        android:textSize="16dp"
+        android:text="Major"
+        />
+
+    <TextView
+        android:id="@+id/partnerMajor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/partnerMajorTitle"
         android:textSize="24dp"
-        android:text="NAME"
+        android:text="[Major]"
+        />
+
+    <TextView
+        android:id="@+id/partnerMinorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/partnerMajor"
+        android:textSize="16dp"
+        android:text="Minor"
+        />
+
+    <TextView
+        android:id="@+id/partnerMinor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/partnerMinorTitle"
+        android:textSize="24dp"
+        android:text="[Minor]"
+        />
+
+    <TextView
+        android:id="@+id/interestsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/partnerMinor"
+        android:textSize="24dp"
+        android:text="Talk to me About"
         />
 
 

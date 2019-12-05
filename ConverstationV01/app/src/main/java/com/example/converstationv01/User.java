@@ -1,21 +1,26 @@
 package com.example.converstationv01;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class User
 {
-    public User(String name, String pronouns, String major, String minor, ArrayList<String> interests, String email)
+    public User(String name, String pronouns, String major, String minor, String email, String image, ArrayList<String> interests)
     {
         this.name = name;
         this.pronouns = pronouns;
         this.major = major;
         this.minor = minor;
         this.interests = new ArrayList<String>();
+        this.email = email;
+        this.image = image;
         for(String s : interests)
         {
             this.interests.add(s);
         }
-        this.email = email;
     }
 
     public User(int num)
@@ -30,6 +35,7 @@ public class User
             interests.add("Video Games");
             interests.add("Anime");
             email = "example0@stanford.edu";
+
         }
         else if(num == 1)
         {
@@ -61,6 +67,8 @@ public class User
             interests.add("Carpentry");
             email = "example3@stanford.edu";
         }
+
+        image = "userpic" + num;
     }
 
     public User(int num, User match)
@@ -77,7 +85,26 @@ public class User
         }
     }
 
-    private String name, lastName, pronouns, major, minor, email;
+    public User(String userString)
+    {
+        Scanner scanner = new Scanner(userString);
+        scanner.useDelimiter(";");
+        name = scanner.next();
+        pronouns = scanner.next();
+        major = scanner.next();
+        minor = scanner.next();
+        email = scanner.next();
+        image = scanner.next();
+
+        interests = new ArrayList<String>();
+
+        while(scanner.hasNext())
+        {
+            interests.add(scanner.next());
+        }
+    }
+
+    private String name, lastName, pronouns, major, minor, email, image;
     private ArrayList<String> interests;
 
     public String getName()
@@ -113,5 +140,28 @@ public class User
     public String getEmail()
     {
         return email;
+    }
+
+    public String getImage()
+    {
+        return image;
+    }
+
+    public String toString()
+    {
+        String retval = "";
+        retval += name + ";";
+        retval += pronouns + ";";
+        retval += major + ";";
+        retval += minor + ";";
+        retval += email + ";";
+        retval += image + ";";
+
+        for(String s: interests)
+        {
+            retval += s + ";";
+        }
+
+        return retval;
     }
 }

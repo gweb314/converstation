@@ -21,10 +21,7 @@ public class ProfilePicView extends View
 
         size = 300;
 
-        image = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic0)).getBitmap();
-        image = image.copy(image.getConfig(), true);
-        image.setHasAlpha(true);
-        cropCircle(image);
+        setImage("userpic0");
     }
 
     Paint bgPaint;
@@ -45,6 +42,38 @@ public class ProfilePicView extends View
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(widthMeasureSpec, size * 2);
+    }
+
+    public void setImage(String imageString)
+    {
+        if(imageString.equals("userpic0"))
+        {
+            Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic0)).getBitmap();
+            image = temp.copy(temp.getConfig(), true);
+        }
+        else if(imageString.equals("userpic1"))
+        {
+            Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic1)).getBitmap();
+            image = temp.copy(temp.getConfig(), true);
+        }
+        else if(imageString.equals("userpic2"))
+        {
+            Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic2)).getBitmap();
+            image = temp.copy(temp.getConfig(), true);
+        }
+        else if(imageString.equals("userpic3"))
+        {
+            Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic3)).getBitmap();
+            image = temp.copy(temp.getConfig(), true);
+        }
+        else
+        {
+            Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic0)).getBitmap();
+            image = temp.copy(temp.getConfig(), true);
+        }
+
+        image.setHasAlpha(true);
+        cropCircle(image);
     }
 
     private void cropCircle(Bitmap bitmap)
