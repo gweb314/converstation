@@ -53,7 +53,7 @@ public class ProfilePicView extends View
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        setMeasuredDimension(widthMeasureSpec, size * 2);
+        setMeasuredDimension(size * 2, size * 2);
     }
 
     public void setImage(String imageString)
@@ -61,31 +61,31 @@ public class ProfilePicView extends View
         if(imageString.equals("userpic0"))
         {
             Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic0)).getBitmap();
-            image = temp.copy(temp.getConfig(), true);
+            image = temp;//copy(temp.getConfig(), true);
         }
         else if(imageString.equals("userpic1"))
         {
             Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic1)).getBitmap();
-            image = temp.copy(temp.getConfig(), true);
+            image = temp;//.copy(temp.getConfig(), true);
         }
         else if(imageString.equals("userpic2"))
         {
             Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic2)).getBitmap();
-            image = temp.copy(temp.getConfig(), true);
+            image = temp;//copy(temp.getConfig(), true);
         }
         else if(imageString.equals("userpic3"))
         {
             Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic3)).getBitmap();
-            image = temp.copy(temp.getConfig(), true);
+            image = temp;//copy(temp.getConfig(), true);
         }
         else
         {
             Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic0)).getBitmap();
-            image = temp.copy(temp.getConfig(), true);
+            image = temp;//copy(temp.getConfig(), true);
         }
 
         image.setHasAlpha(true);
-        cropCircle(image);
+        //cropCircle(image);
     }
 
     private void cropCircle(Bitmap bitmap)
