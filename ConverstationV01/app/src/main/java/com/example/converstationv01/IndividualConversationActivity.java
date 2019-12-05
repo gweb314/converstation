@@ -34,6 +34,7 @@ public class IndividualConversationActivity extends AppCompatActivity {
         profilePic.setImage(partner.getImage());
 
         partnerName.setText(partner.getName());
+        partnerInterests.setTags(partner.getInterests());
 }
 
     public void viewProfile(View view) {
