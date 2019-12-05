@@ -75,7 +75,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/deleteTime"
         app:layout_constraintHorizontal_bias="0.497"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:textColor="@android:color/white"
         android:text="Add New Time"
         android:textAllCaps="false"

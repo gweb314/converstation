@@ -27,6 +27,7 @@ public class FoundSomeoneActivity extends AppCompatActivity {
 
     public void startNavigation(View view) {
         Intent intent = new Intent(this, IndividualNavigationActivity.class);
+        intent.putExtra("partner", partner.toString());
 
         startActivity(intent);
     }
