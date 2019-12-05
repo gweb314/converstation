@@ -6,15 +6,13 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import java.util.ArrayList;
-
 public class DateBar extends View
 {
     public DateBar(Context context, AttributeSet attrset)
     {
         super(context, attrset);
         backgroundPaint = new Paint();
-        backgroundPaint.setColor(getResources().getColor(R.color.colorAccent));
+        backgroundPaint.setColor(getResources().getColor(R.color.colorPrimary));
 
         dividerPaint = new Paint();
         dividerPaint.setColor(getResources().getColor(android.R.color.darker_gray));

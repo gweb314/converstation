@@ -45,6 +45,8 @@ public class User
             minor = "";
             interests.add("D&D");
             interests.add("Creative Writing");
+            interests.add("Drawing");
+            interests.add("Fantasy");
             email = "example1@stanford.edu";
         }
         else if(num == 2)
