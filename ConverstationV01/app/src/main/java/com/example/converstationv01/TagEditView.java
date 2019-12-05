@@ -19,10 +19,12 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.ArrayList;
 
 @SuppressLint("AppCompatCustomView")
-public class TagEditView extends EditText {
+public class TagEditView extends TextInputEditText {
     public TagEditView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 

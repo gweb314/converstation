@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class EditProfileActivity extends AppCompatActivity {
 
     @Override
@@ -21,6 +23,8 @@ public class EditProfileActivity extends AppCompatActivity {
         editMinor = findViewById(R.id.minorEdit);
         editEmail = findViewById(R.id.emailEdit);
         editInterests = findViewById(R.id.interestsEdit);
+
+        nameLayout = findViewById(R.id.nameLayout);
 
         User user = UserManager.getUser();
 
@@ -39,8 +43,16 @@ public class EditProfileActivity extends AppCompatActivity {
     ProfilePicView editProfilePic;
     TagEditView editInterests;
     String image = "userpic0";
+    TextInputLayout nameLayout;
 
     public void saveProfile(View view) {
+        if(!validName(editName.getText().toString()))
+        {
+            nameLayout.setErrorEnabled(true);
+            nameLayout.setError("You need to enter a name");
+            return;
+        }
+
         User user = new User(editName.getText().toString(),
                 editPronouns.getText().toString(),
                 editMajor.getText().toString(),
@@ -59,5 +71,15 @@ public class EditProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MyProfileActivity.class);
 
         startActivity(intent);
+    }
+
+    private boolean validName(String name)
+    {
+        if(name.length() == 0) return false;
+        for(int i = 0; i < name.length(); i++)
+        {
+            if(name.charAt(i) != ' ') return true;
+        }
+        return false;
     }
 }
