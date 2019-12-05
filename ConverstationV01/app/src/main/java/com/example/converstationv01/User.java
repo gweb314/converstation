@@ -45,10 +45,6 @@ public class User
             minor = "";
             interests.add("D&D");
             interests.add("Creative Writing");
-            interests.add("Video Games");
-            interests.add("Anime");
-            interests.add("Wine Tasting");
-            interests.add("Rakugo");
             email = "example1@stanford.edu";
         }
         else if(num == 2)
