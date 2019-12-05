@@ -51,6 +51,7 @@ public class TagListView extends TextView {
         TextView tagText = new TextView(getContext());
         tagText.setText(text);
         tagText.setTextSize(TypedValue.COMPLEX_UNIT_PT, 36);
+        tagText.setTextColor(getResources().getColor(android.R.color.white));
 
         tag.addView(tagText);
         return tag;
