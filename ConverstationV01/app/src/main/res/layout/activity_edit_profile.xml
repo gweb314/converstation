@@ -40,7 +40,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nameEdit"
-        android:hint="Pronouns"
+        android:hint="Pronouns (Optional)"
         android:inputType="text"
         android:imeOptions="actionDone"
         />
@@ -82,7 +82,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/minorEdit"
-        android:hint="Email"
+        android:hint="Email (Optional)"
         android:inputType="text"
         android:imeOptions="actionDone"
         />
@@ -96,8 +96,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailEdit"
-        android:textSize="24dp"
-        android:hint="Interests"
+        android:hint="Interests (Optional)"
         android:inputType="text"
         android:imeOptions="actionDone"
         />
