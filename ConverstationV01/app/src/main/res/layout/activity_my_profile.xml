@@ -7,8 +7,8 @@
     android:textColor="@color/black"
     tools:context=".MyProfileActivity">
 
-    <TextView
-        android:id="@+id/pageTitle"
+    <com.example.converstationv01.ProfilePicView
+        android:id="@+id/myProfilePic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -16,8 +16,110 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/myName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myProfilePic"
         android:textSize="32dp"
-        android:text="My Profile Page"
+        android:text="[Name]"
+        />
+
+    <TextView
+        android:id="@+id/myPronouns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myName"
+        android:textSize="16dp"
+        android:text="[Pronouns]"
+        />
+
+    <TextView
+        android:id="@+id/myMajorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myPronouns"
+        android:textSize="16dp"
+        android:text="Major"
+        />
+
+    <TextView
+        android:id="@+id/myMajor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myMajorTitle"
+        android:textSize="24dp"
+        android:text="[Major]"
+        />
+
+    <TextView
+        android:id="@+id/myMinorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myMajor"
+        android:textSize="16dp"
+        android:text="Minor"
+        />
+
+    <TextView
+        android:id="@+id/myMinor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myMinorTitle"
+        android:textSize="24dp"
+        android:text="[Minor]"
+        />
+
+    <TextView
+        android:id="@+id/myInterestsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myMinor"
+        android:textSize="16dp"
+        android:text="Talk to me About"
+        />
+
+    <com.example.converstationv01.TagListView
+        android:id="@+id/myInterests"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myInterestsTitle"
+        android:textSize="24dp"
+        android:text="[Interests]"
         />
 
     <Button

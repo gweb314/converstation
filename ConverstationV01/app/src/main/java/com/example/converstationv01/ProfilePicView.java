@@ -1,6 +1,7 @@
 package com.example.converstationv01;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -16,10 +17,21 @@ public class ProfilePicView extends View
     {
         super(context, attrset);
 
-        bgPaint = new Paint();
-        bgPaint.setColor(getResources().getColor(R.color.colorAccent));
-
         size = 300;
+
+        TypedArray a = context.getTheme().obtainStyledAttributes(
+                attrset,
+                R.styleable.ProfilePicView,
+                0, 0);
+
+        try {
+            size = a.getInt(R.styleable.ProfilePicView_size, 300);
+        } finally {
+            a.recycle();
+        }
+
+        bgPaint = new Paint();
+        bgPaint.setColor(getResources().getColor(R.color.colorPrimary));
 
         setImage("userpic0");
     }

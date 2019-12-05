@@ -7,8 +7,8 @@
     android:textColor="@color/black"
     tools:context=".EditProfileActivity">
 
-    <TextView
-        android:id="@+id/pageTitle"
+    <com.example.converstationv01.ProfilePicView
+        android:id="@+id/editProfilePic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -16,36 +16,120 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="32dp"
-        android:text="Edit Profile Page"
         />
 
-    <Button
-        android:id="@+id/saveProfile"
-        android:layout_width="168dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="32dp"
-        android:text="Save Profile"
-        app:layout_constraintBottom_toTopOf="@id/Cancel"
+    <EditText
+        android:id="@+id/nameEdit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:onClick="saveProfile"
+        app:layout_constraintTop_toBottomOf="@id/editProfilePic"
+        android:hint="Name"
+        android:inputType="text"
+        android:imeOptions="actionDone"
         />
 
-    <Button
-        android:id="@+id/Cancel"
-        android:layout_width="168dp"
-        android:layout_height="53dp"
+    <EditText
+        android:id="@+id/pronounsEdit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameEdit"
+        android:hint="Pronouns (Optional)"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        />
+
+    <EditText
+        android:id="@+id/majorEdit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pronounsEdit"
+        android:hint="Major (Optional)"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        />
+
+    <EditText
+        android:id="@+id/minorEdit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/majorEdit"
+        android:hint="Minor (Optional)"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        />
+
+    <EditText
+        android:id="@+id/emailEdit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/minorEdit"
+        android:hint="Email (Optional)"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        />
+
+    <com.example.converstationv01.TagEditView
+        android:id="@+id/interestsEdit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailEdit"
+        android:hint="Interests (Optional)"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:onClick="cancel"
-        />
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/saveProfile"
+            android:layout_width="168dp"
+            android:layout_height="53dp"
+            android:text="Save Profile"
+            android:onClick="saveProfile"
+            />
+
+        <Button
+            android:id="@+id/Cancel"
+            android:layout_width="168dp"
+            android:layout_height="53dp"
+            android:text="Cancel"
+            android:onClick="cancel"
+            />
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
