@@ -13,7 +13,7 @@ public class FoundSomeoneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_found_someone);
 
-        partner = new User(1);
+        partner = new User((int)(Math.random() * 3 + 1), UserManager.getUser());
     }
 
     User partner;
