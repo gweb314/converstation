@@ -7,7 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MyProfileActivity extends AppCompatActivity {
 
@@ -16,7 +21,7 @@ public class MyProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_profile);
 
-        user = new User(0);
+        user = UserManager.getUser();
 
         profilePic = findViewById(R.id.myProfilePic);
 
