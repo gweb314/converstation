@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingTop="15dp">
+
+    <ImageView
+        android:paddingTop="10dp"
+        android:id="@+id/converstation_ImageView"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_gravity="center" />
+    <LinearLayout
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/converstation_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:textColor="@color/black" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address or General Location"
+            android:textColor="@color/lightGray"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/converstation_feature_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
+
+
+
+    </ListView>
+
+
+</LinearLayout>

@@ -90,7 +90,7 @@ public class MapsActivity extends AppCompatActivity implements OnMyLocationButto
     private Button startNavText;
 
     private Polyline mPolyline;
-    private ActionBar headBar;
+    private TextView headBar;
 
     private Map<String, Map<String, Double>> converStationLatLngs;
     private List<Location> converStationLocations;
@@ -180,8 +180,8 @@ public class MapsActivity extends AppCompatActivity implements OnMyLocationButto
         }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        headBar = getSupportActionBar();
-        headBar.setTitle("ConverStation Map");
+        headBar = findViewById(R.id.header);
+        headBar.setText("ConverStation Map");
 
         navBar.setVisibility(View.INVISIBLE);
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
@@ -291,7 +291,7 @@ public class MapsActivity extends AppCompatActivity implements OnMyLocationButto
     @Override
     public boolean onMarkerClick(final Marker marker) {
 
-        headBar.setTitle(marker.getTitle());
+        headBar.setText(marker.getTitle());
         targetLocation = marker.getTitle();
 
         navBar.setVisibility(View.VISIBLE);

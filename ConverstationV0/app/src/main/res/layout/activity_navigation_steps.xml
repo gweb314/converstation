@@ -24,6 +24,7 @@
     <ImageView
         android:paddingTop="10dp"
         android:id="@+id/destination_ImageView"
+        android:onClick="viewLocationInfo"
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_gravity="center" />
@@ -42,6 +43,7 @@
 
         <TextView
             android:id="@+id/destination_TextView"
+            android:onClick="viewLocationInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24dp"
