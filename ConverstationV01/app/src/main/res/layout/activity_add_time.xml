@@ -106,7 +106,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:textSize="18sp"
         android:text="Add to ConverStation Plan"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:textColor="@android:color/white"
         android:textAllCaps="false"
         android:onClick="addTimeToPlan"

@@ -25,16 +25,15 @@
         android:layout_height="65dp"
         android:layout_marginBottom="24dp"
         android:background="@color/colorPrimary"
+        android:onClick="startNavigation"
+        android:text="Start Navigation"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="24sp"
-        android:onClick="startNavigation"
-        android:text="Start Navigation"
         app:layout_constraintBottom_toTopOf="@id/Cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/Cancel"

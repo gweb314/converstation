@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -30,7 +29,7 @@ public class ProfilePicView extends View
         }
 
         bgPaint = new Paint();
-        bgPaint.setColor(getResources().getColor(R.color.colorPrimary));
+        bgPaint.setColor(getResources().getColor(R.color.colorPrimaryDark));
         bgPaint.setStyle(Paint.Style.STROKE);
         bgPaint.setStrokeWidth(25);
 
