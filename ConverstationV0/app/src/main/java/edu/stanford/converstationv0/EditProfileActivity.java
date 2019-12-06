@@ -9,14 +9,16 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -80,16 +82,16 @@ public class EditProfileActivity extends AppCompatActivity {
             nameLayout.setErrorEnabled(false);
         }
 
-//        if(!ResourceManager.picExists("userPic"))
-//        {
-//            picLayout.setErrorEnabled(true);
-//            picLayout.setError("Profile Pic is Required");
-//            invalid = true;
-//        }
-//        else
-//        {
-//            picLayout.setErrorEnabled(false);
-//        }
+        if(!ResourceManager.picExists("userPic"))
+        {
+            picLayout.setErrorEnabled(true);
+            picLayout.setError("Profile Pic is Required");
+            invalid = true;
+        }
+        else
+        {
+            picLayout.setErrorEnabled(false);
+        }
 
         if(invalid) return;
 
@@ -115,12 +117,14 @@ public class EditProfileActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, "Profile Saved", Toast.LENGTH_LONG);
         toast.show();
         startActivity(intent);
+        finish();
     }
 
     public void cancel(View view) {
         Intent intent = new Intent(this, MyProfileActivity.class);
 
         startActivity(intent);
+
     }
 
     private boolean validName(String name)
