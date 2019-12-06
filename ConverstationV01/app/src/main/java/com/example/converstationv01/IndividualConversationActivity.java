@@ -85,7 +85,6 @@ public class IndividualConversationActivity extends AppCompatActivity {
     public void endConvo(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Are you sure you want to end?");
-        LayoutInflater inflater = getLayoutInflater();
         builder.setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {
                     @Override
