@@ -116,6 +116,6 @@ public class schedule extends AppCompatActivity {
 
     public static void deletePlans()
     {
-        plans.clear();
+        if(plans != null) plans.clear();
     }
 }

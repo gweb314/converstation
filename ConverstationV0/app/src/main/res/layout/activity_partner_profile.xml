@@ -106,7 +106,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/partnerMinor"
         android:textSize="16dp"
-        android:text="Talk to me About"
+        android:text="Interests"
         />
 
     <edu.stanford.converstationv0.TagListView
