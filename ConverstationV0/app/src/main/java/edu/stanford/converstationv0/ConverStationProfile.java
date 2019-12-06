@@ -115,7 +115,7 @@ public class ConverStationProfile extends AppCompatActivity {
             topic1View.setText(currentUser.getInterests().get(0));
 
             TextView topic2View = view.findViewById(R.id.topic2_textView);
-            topic2View.setText(currentUser.getInterests().get(1));
+            topic2View.setText(currentUser.getInterests().get(currentUser.getInterests().size()-1));
 
             return view;
         }

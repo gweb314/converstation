@@ -43,11 +43,11 @@
         android:id="@+id/tagListView" />
 
     <Button
+        style="@style/CancelButton"
         android:id="@+id/leaveConvo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="@color/red"
         android:onClick="leaveConvo"
         android:text="Leave Conversation"
         android:textAllCaps="false"

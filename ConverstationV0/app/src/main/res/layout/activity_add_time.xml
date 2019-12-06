@@ -119,8 +119,9 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        style="@style/HighlightButton"
         android:id="@+id/addTime"
-        android:layout_width="244dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,7 +130,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:textSize="18sp"
         android:text="Add to ConverStation Plan"
-        android:background="@color/colorPrimaryDark"
         android:textColor="@android:color/white"
         android:textAllCaps="false"
         android:onClick="addTimeToPlan"

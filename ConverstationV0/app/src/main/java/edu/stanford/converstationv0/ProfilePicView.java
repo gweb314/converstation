@@ -31,7 +31,7 @@ public class ProfilePicView extends View
         }
 
         bgPaint = new Paint();
-        bgPaint.setColor(getResources().getColor(R.color.colorPrimaryDark));
+        bgPaint.setColor(getResources().getColor(R.color.colorAccent));
         bgPaint.setStyle(Paint.Style.STROKE);
         bgPaint.setStrokeWidth(25);
 

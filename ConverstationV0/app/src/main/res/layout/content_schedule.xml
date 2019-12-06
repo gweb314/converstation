@@ -68,11 +68,11 @@
         app:layout_constraintHorizontal_bias="0.497"/>
 
     <Button
+        style="@style/HighlightButton"
         android:id="@+id/addNewTime"
         android:layout_width="244dp"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="@color/colorAccent"
         android:onClick="openAddTime"
         android:text="Add New Time"
         android:textAllCaps="false"
@@ -92,7 +92,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/grayed_button_bg"
         android:textColor="@android:color/secondary_text_dark"
         android:text="Delete Time"
         android:textAllCaps="false"

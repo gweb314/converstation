@@ -103,13 +103,13 @@ public class PhotoPickerView extends View {
         if(selected < 0)
         {
             button.setClickable(false);
-            button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+            button.setBackground(getResources().getDrawable(R.drawable.grayed_button_bg));
             button.setTextColor(getResources().getColor(android.R.color.secondary_text_dark));
         }
         else
         {
             button.setClickable(true);
-            button.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+            button.setBackground(getResources().getDrawable(R.drawable.light_button_bg));
             button.setTextColor(getResources().getColor(android.R.color.white));
         }
     }

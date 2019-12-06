@@ -22,11 +22,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <Button
+        style="@style/CancelButton"
         android:id="@+id/button4"
         android:layout_width="214dp"
-        android:layout_height="71dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:background="@color/red"
         android:onClick="resetPrototype"
         android:text="Delete Profile"
         android:textColor="@color/white"

@@ -24,14 +24,15 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
+        style="@style/HighlightButton"
         android:id="@+id/button"
-        android:layout_width="244dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
-        android:background="@color/colorAccent"
         android:onClick="meetNow"
         android:text="Start A Conversation"
-        android:textAllCaps="false"
         android:textColor="@android:color/white"
 
         android:textSize="20sp"
@@ -41,11 +42,11 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
+        style="@style/PrimaryButton"
         android:id="@+id/button2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@color/colorPrimary"
         android:text="Group Conversations"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
@@ -58,6 +59,7 @@
         android:onClick="openMap"/>
 
     <Button
+        style="@style/PrimaryButton"
         android:id="@+id/button3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -67,7 +69,6 @@
         android:text="ConverStation Planner"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:background="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.5"
@@ -75,6 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <ImageButton
+        style="@style/PrimaryButton"
         android:id="@+id/imageButton2"
         android:layout_width="69dp"
         android:layout_height="69dp"
@@ -87,6 +89,7 @@
         android:onClick="openSettings"/>
 
     <ImageButton
+        style="@style/PrimaryButton"
         android:id="@+id/imageButton3"
         android:layout_width="69dp"
         android:layout_height="69dp"

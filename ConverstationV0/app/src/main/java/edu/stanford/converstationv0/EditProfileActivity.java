@@ -55,7 +55,7 @@ public class EditProfileActivity extends AppCompatActivity {
             editProfilePic.setImage("userPic");
             cancel =  findViewById(R.id.Cancel);
             cancel.setClickable(false);
-            cancel.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+            cancel.setBackground(getResources().getDrawable(R.drawable.grayed_button_bg));
             cancel.setTextColor(getResources().getColor(android.R.color.secondary_text_dark));
         }
 

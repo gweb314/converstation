@@ -32,6 +32,7 @@
         />
 
     <Button
+        style="@style/GrayedButton"
         android:id="@+id/selectPhoto"
         android:layout_width="244dp"
         android:layout_height="wrap_content"
@@ -43,8 +44,6 @@
         android:textSize="18sp"
         android:text="Select Photo"
         android:clickable="false"
-        android:background="@android:color/darker_gray"
-        android:textColor="@android:color/secondary_text_dark"
         android:textAllCaps="false"
         android:onClick="selectPhoto"
         />

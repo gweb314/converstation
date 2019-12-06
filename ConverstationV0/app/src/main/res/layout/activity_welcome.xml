@@ -7,15 +7,17 @@
     tools:context=".WelcomeActivity">
 
     <Button
+        style="@style/PrimaryButton"
         android:id="@+id/createProfile"
-        android:layout_width="268dp"
-        android:layout_height="85dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:background="@color/colorAccent"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
         android:onClick="openCreateProfile"
         android:text="Get Started"
-        android:textColor="@android:color/white"
         android:textSize="24sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
