@@ -157,12 +157,11 @@ public class ConverStationProfile extends AppCompatActivity {
                         public void onClick(DialogInterface arg0, int arg1) {
                             Intent intent = new Intent(ConverStationProfile.this, GroupConversationActivity.class);
                             Toast.makeText(ConverStationProfile.this, "Conversation Created", Toast.LENGTH_LONG).show();
-                            Intent myIntent = new Intent(ConverStationProfile.this, ArrivedAtConversation.class);
-                            myIntent.putExtra("partner", new User(1).toString());
-                            myIntent.putExtra("individual", "false");
+                            intent.putExtra("partner", new User(1).toString());
+                            intent.putExtra("individual", "false");
                             TagEditView tags = dialogLayout.findViewById(R.id.tagEditView);
                             intent.putExtra("tags", tags.getTagsString());
-                            ConverStationProfile.this.startActivity(myIntent);
+                            ConverStationProfile.this.startActivity(intent);
                         }
                     });
             builder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
