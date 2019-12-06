@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -16,7 +17,14 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+        help_text =  findViewById(R.id.help_text);
+        help_text.setVisibility(View.GONE);
+        about_text =  findViewById(R.id.about_text);
+        about_text.setVisibility(View.GONE);
     }
+
+    TextView help_text;
+    TextView about_text;
 
     protected void resetPrototype(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -37,5 +45,18 @@ public class SettingsActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+
+    public void toggle_contents_help(View v){
+        help_text.setVisibility( help_text.isShown()
+                ? View.GONE
+                : View.VISIBLE );
+    }
+
+    public void toggle_contents_about(View v){
+        about_text.setVisibility( about_text.isShown()
+                ? View.GONE
+                : View.VISIBLE );
     }
 }
