@@ -10,12 +10,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class EditProfileActivity extends AppCompatActivity {
@@ -56,6 +55,11 @@ public class EditProfileActivity extends AppCompatActivity {
             cancel.setClickable(false);
             cancel.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
             cancel.setTextColor(getResources().getColor(android.R.color.secondary_text_dark));
+        }
+
+        if(getIntent().getStringExtra("pic") != null)
+        {
+            ResourceManager.addNewProfilePic("userPic", ResourceManager.getProfilePic(getIntent().getStringExtra("pic")));
         }
     }
 
@@ -115,14 +119,12 @@ public class EditProfileActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, "Profile Saved", Toast.LENGTH_LONG);
         toast.show();
         startActivity(intent);
-        finish();
     }
 
     public void cancel(View view) {
         Intent intent = new Intent(this, MyProfileActivity.class);
 
         startActivity(intent);
-
     }
 
     private boolean validName(String name)
@@ -139,38 +141,36 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public void changePic(View view)
     {
-        System.out.println("Clicked");
+        Intent intent = new Intent(this, PhotoPickerActivity.class);
+
+        startActivity(intent);
+
+        /*
         // Here, thisActivity is the current activity
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
-            System.out.println("Asking Permission");
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         1);
         } else {
-            System.out.println("Already Has Permission");
             accessCamera();
         }
-
+         */
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String[] permissions, int[] grantResults) {
-        System.out.println("Got Response");
         switch (requestCode) {
             case 1: {
-                System.out.println("Case 1");
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    System.out.println("Accepted");
                     // permission was granted, yay! Do the
                     // contacts-related task you need to do.
                     accessCamera();
                 } else {
-                    System.out.println("Denied");
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                 }
@@ -184,7 +184,6 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private void accessCamera()
     {
-        System.out.println("Accessing camera");
         Intent i = new Intent(
                 Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -196,9 +195,7 @@ public class EditProfileActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        System.out.println("1");
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
-            System.out.println("2");
             Uri selectedImage = data.getData();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
