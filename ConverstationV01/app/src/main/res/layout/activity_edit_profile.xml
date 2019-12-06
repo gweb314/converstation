@@ -7,17 +7,23 @@
     android:textColor="@color/black"
     tools:context=".EditProfileActivity">
 
-    <com.example.converstationv01.ProfilePicView
-        android:id="@+id/editProfilePic"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/picLayout"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="changePic"
-        />
+        >
+        <com.example.converstationv01.ProfilePicView
+            android:id="@+id/editProfilePic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="changePic"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nameLayout"
@@ -27,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editProfilePic"
+        app:layout_constraintTop_toBottomOf="@id/picLayout"
         android:hint="Name"
         app:hintEnabled="true"
         >

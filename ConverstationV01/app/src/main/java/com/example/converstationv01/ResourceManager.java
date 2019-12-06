@@ -31,6 +31,11 @@ public class ResourceManager
         border = ((BitmapDrawable)context.getResources().getDrawable(R.drawable.border)).getBitmap();
     }
 
+    public static boolean picExists(String image)
+    {
+        return profilePics != null & image != null && profilePics.get(image) != null;
+    }
+
     public static Bitmap loadProfilePic(Context context, int id)
     {
         System.out.println("Loading " + id);
@@ -59,6 +64,12 @@ public class ResourceManager
             canvas.drawBitmap(getProfilePic(image),
                     null, new Rect(width / 2 - imageRadius, size - imageRadius,
                             width / 2 + imageRadius, size + imageRadius), null);
+        }
+        else
+        {
+            Paint textPaint = new Paint();
+            textPaint.setTextSize(64);
+            canvas.drawText("Add a Profile Pic", imageRadius / 4, size, textPaint);
         }
         canvas.drawBitmap(border,
                 null, new Rect(width / 2 - imageRadius, size - imageRadius,

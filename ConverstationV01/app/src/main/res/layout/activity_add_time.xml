@@ -27,22 +27,30 @@
         android:layout_marginTop="90dp"
         android:text="Day"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/day"
+        app:layout_constraintEnd_toEndOf="@id/dayLayout"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/day"
+        app:layout_constraintStart_toStartOf="@id/dayLayout"
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <Spinner
-        android:id="@+id/day"
-        android:layout_width="244dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dayLayout"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dayText"
-        android:textSize="32sp"
-        />
+        >
+        <Spinner
+            android:id="@+id/day"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+
+            android:textSize="32sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/startTimeText"
@@ -51,49 +59,63 @@
         android:layout_marginTop="40dp"
         android:text="Start Time"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/startTime"
+        app:layout_constraintEnd_toEndOf="@id/startTimeLayout"
         app:layout_constraintHorizontal_bias="0.256"
-        app:layout_constraintStart_toStartOf="@id/startTime"
-        app:layout_constraintTop_toBottomOf="@+id/day"
+        app:layout_constraintStart_toStartOf="@id/startTimeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/dayLayout"
         />
 
-    <TimePicker
-        android:id="@+id/startTime"
-        android:layout_width="244dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/startTimeLayout"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_marginTop="12dp"
-        android:timePickerMode="spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/startTimeText"
-        />
+        >
+        <TimePicker
+            android:id="@+id/startTime"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+
+            android:timePickerMode="spinner"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/durationText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Duration (minutes)"
+        android:text="Duration (at least 15 minutes)"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/duration"
+        app:layout_constraintEnd_toEndOf="@id/durrationLayout"
         app:layout_constraintHorizontal_bias="0.316"
-        app:layout_constraintStart_toStartOf="@id/duration"
-        app:layout_constraintTop_toBottomOf="@id/startTime"
+        app:layout_constraintStart_toStartOf="@id/durrationLayout"
+        app:layout_constraintTop_toBottomOf="@id/startTimeLayout"
         />
 
-    <EditText
-        android:id="@+id/duration"
-        android:layout_width="244dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/durrationLayout"
         android:layout_height="wrap_content"
-        android:inputType="numberSigned"
-        android:textSize="24sp"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/durationText"
-        android:hint="At Least 15 Min"
-        />
+        >
+        <EditText
+            android:id="@+id/duration"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:textSize="24sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/addTime"
