@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,6 +31,7 @@ public class ConverStationProfile extends AppCompatActivity {
         locationName = (String) getIntent().getStringExtra("LocationName");
         TextView locationNameView = findViewById(R.id.converstation_TextView);
         ImageView locationImageView = findViewById(R.id.converstation_ImageView);
+        Button start_convo_button = findViewById(R.id.start_convo_button);
         locationNameView.setText(locationName);
 
         ArrayList<User> usersList = new ArrayList<User>();
@@ -37,29 +39,36 @@ public class ConverStationProfile extends AppCompatActivity {
         switch(locationName) {
             case "The Oval":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.stanford_oval_profile));
+                start_convo_button.setText("Get Directions");
                 break;
             case "Garden by MemChu":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.memorial_church_garden_profile));
+                start_convo_button.setText("Get Directions");
                 break;
             case "Roble Arts Gym Courtyard":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.roble_court_profile));
                 usersList.add(new User("Ben", "He/him", "TAPS", "", "ben@stanford.edu", "random_user_ben", new ArrayList<String>() {{add("Musicals");add("DanceHistory"); }}));
+                start_convo_button.setText("Get Directions");
                 break;
             case "Tresidder Union":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.tresidder_union_profile));
                 usersList.add(new User("Jay", "They/Then", "Computer Science", "Econ", "jay@stanford.edu", "random_user_jay", new ArrayList<String>() {{add("Chess");add("AI"); }}));
                 usersList.add(new User("Hope", "She/Her", "HumBio", "", "hope@stanford.edu", "random_user_hope", new ArrayList<String>() {{add("Baking");add("TGBBS"); }}));
                 usersList.add(new User("Neil", "He/him", "English", "German Studies", "neil@stanford.edu", "random_user_neil", new ArrayList<String>() {{add("HarryPotter");add("Movies"); }}));
+                start_convo_button.setText("Get Directions");
                 break;
             case "The Clocktower":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.clock_tower_profile));
+                start_convo_button.setText("Get Directions");
                 break;
             case "Stanford D.School":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.stanford_d_school_profile));
                 usersList.add(new User(1));
+                start_convo_button.setText("Start Group Conversation");
                 break;
             default:
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.stanford_oval_profile));
+                start_convo_button.setText("Get Directions");
         }
 
         ArrayAdapter<User> groupConvoAdapter = new ConverStationProfile.groupConvoArrayAdapter(this, 0, usersList);
@@ -67,6 +76,8 @@ public class ConverStationProfile extends AppCompatActivity {
         ListView groupConvoContainer = findViewById(R.id.converstation_profile_container);
         groupConvoContainer.setAdapter(groupConvoAdapter);
     }
+
+    Button start_convo_button;
 
     class groupConvoArrayAdapter extends ArrayAdapter<User> {
 
