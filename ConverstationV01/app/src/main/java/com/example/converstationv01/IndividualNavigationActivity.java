@@ -57,4 +57,5 @@ public class IndividualNavigationActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
 }

@@ -18,11 +18,13 @@ public class ConverStationInfoActivity extends AppCompatActivity {
         Intent intent = new Intent(this, GroupConversationActivity.class);
 
         startActivity(intent);
+        finish();
     }
 
     public void joinGroup(View view) {
         Intent intent = new Intent(this, GroupNavigationActivity.class);
 
         startActivity(intent);
+        finish();
     }
 }

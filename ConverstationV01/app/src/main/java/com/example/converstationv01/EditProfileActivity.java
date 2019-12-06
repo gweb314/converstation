@@ -118,12 +118,14 @@ public class EditProfileActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, "Profile Saved", Toast.LENGTH_LONG);
         toast.show();
         startActivity(intent);
+        finish();
     }
 
     public void cancel(View view) {
         Intent intent = new Intent(this, MyProfileActivity.class);
 
         startActivity(intent);
+
     }
 
     private boolean validName(String name)

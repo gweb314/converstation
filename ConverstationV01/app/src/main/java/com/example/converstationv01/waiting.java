@@ -23,11 +23,13 @@ public class waiting extends AppCompatActivity {
         Intent intent = new Intent(this, FoundSomeoneActivity.class);
 
         startActivity(intent);
+        finish();
     }
 
     public void cancel(View view) {
         Intent intent = new Intent(this, MainActivity.class);
 
         startActivity(intent);
+        finish();
     }
 }

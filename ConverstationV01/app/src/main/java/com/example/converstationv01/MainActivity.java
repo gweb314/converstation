@@ -1,5 +1,7 @@
 package com.example.converstationv01;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -45,5 +47,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, waiting.class);
 
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

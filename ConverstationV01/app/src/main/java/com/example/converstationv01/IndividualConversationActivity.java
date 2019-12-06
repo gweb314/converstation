@@ -93,6 +93,7 @@ public class IndividualConversationActivity extends AppCompatActivity {
                         Intent intent = new Intent(IndividualConversationActivity.this, MainActivity.class);
                         Toast.makeText(IndividualConversationActivity.this, "Conversation Ended",Toast.LENGTH_LONG).show();
                         startActivity(intent);
+                        finish();
                     }
                 });
         builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
@@ -105,4 +106,5 @@ public class IndividualConversationActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
 }

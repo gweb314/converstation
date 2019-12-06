@@ -52,4 +52,6 @@ public class IndividualArrivedActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+
 }
