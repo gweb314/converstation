@@ -26,13 +26,9 @@ public class GroupConversationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_conversation);
+        tagList = findViewById(R.id.tagListView);
         tagString = getIntent().getStringExtra("tags");
         ArrayList<String> al = new ArrayList<String>();
-        for(String s : tagString.split(" ")) {
-            al.add(s);
-        }
-        tagList = findViewById(R.id.tagListView);
-        tagList.setTags(al);
 
         ArrayList<String> usersStringList = getIntent().getStringArrayListExtra("partners");
         ArrayList<User> usersList = new ArrayList<User>();
@@ -46,6 +42,19 @@ public class GroupConversationActivity extends AppCompatActivity {
         ListView groupConvoContainer = findViewById(R.id.group_members_container);
         groupConvoContainer.setAdapter(groupConvoAdapter);
 
+        if (tagString != null) {
+            for (String s : tagString.split(" ")) {
+                al.add(s);
+            }
+            tagList.setTags(al);
+        } else {
+            for (int i = 0; i < 2; i++) {
+                String interest = usersList.get(0).getInterests().get(i);
+                al.add(interest);
+            }
+        }
+
+        tagList.setTags(al);
     }
 
     TagListView tagList;
@@ -103,13 +112,21 @@ public class GroupConversationActivity extends AppCompatActivity {
 
             //get the inflater and inflate the XML layout for each item
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(R.layout.converstation_feature, null);
+            View view = inflater.inflate(R.layout.group_member, null);
 
             TextView nameView = (TextView) view.findViewById(R.id.name_view);
             ProfilePicView picView = view.findViewById(R.id.pic_view);
 
             nameView.setText(currentUser.getName());
             picView.setImage(currentUser.getImage());
+
+            view.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent myIntent = new Intent(GroupConversationActivity.this, PartnerProfile.class);
+                    myIntent.putExtra("partner", currentUser.toString());
+                    startActivity(myIntent);
+                }
+            });
 
             return view;
         }

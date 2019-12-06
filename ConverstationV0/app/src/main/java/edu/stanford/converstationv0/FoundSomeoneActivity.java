@@ -46,7 +46,7 @@ public class FoundSomeoneActivity extends AppCompatActivity {
     public void startNavigation(View view) {
         Intent intent = new Intent(this, ArrivedAtConversation.class);
         intent.putExtra("partner", partner.toString());
-
+        intent.putExtra("individual", "true");
         startActivity(intent);
     }
 

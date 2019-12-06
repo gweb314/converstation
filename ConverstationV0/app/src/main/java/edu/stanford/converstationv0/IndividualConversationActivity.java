@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class IndividualConversationActivity extends AppCompatActivity {
 
     @Override
@@ -60,7 +62,7 @@ public class IndividualConversationActivity extends AppCompatActivity {
                     public void onClick(DialogInterface arg0, int arg1) {
                         Intent intent = new Intent(IndividualConversationActivity.this, GroupConversationActivity.class);
                         Toast.makeText(IndividualConversationActivity.this, "Conversation Created", Toast.LENGTH_LONG).show();
-                        intent.putExtra("partner", partner.toString());
+                        intent.putExtra("partners", new ArrayList<String>() {{ add(partner.toString()); }});
                         TagEditView tags = dialogLayout.findViewById(R.id.tagEditView);
                         intent.putExtra("tags", tags.getTagsString());
                         startActivity(intent);

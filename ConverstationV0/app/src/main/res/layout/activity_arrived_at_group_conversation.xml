@@ -23,11 +23,12 @@
         android:text="Cancel" />
 
     <TextView
+        android:id="@+id/arrived_heading"
         android:paddingTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Joining a Group Conversation with"
+        android:text="Joining a Conversation with"
         android:textSize="20dp"
         android:textStyle="bold"
         android:gravity="center"
@@ -63,43 +64,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/darkGray"
-        android:text="[Filler] + X others"
+        android:text=""
         android:textSize="15dp"
         android:gravity="center"/>
 
     <TextView
+        android:id="@+id/descriptor_view"
         android:paddingTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="about"
+        android:text="interested in"
         android:textSize="18dp"
         android:textStyle="bold"
         android:gravity="center"
         android:textColor="@color/black"/>
 
-    <LinearLayout
+    <edu.stanford.converstationv0.TagListView
+        android:id="@+id/interests_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="18dp"
-            android:textColor="@color/white"
-            android:background="@drawable/rounded_rect_bg"/>
-        <TextView
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="TextView"
-            android:textSize="18dp"
-            android:textColor="@color/white"
-            android:background="@drawable/rounded_rect_bg"/>
-    </LinearLayout>
+        android:layout_gravity="center_horizontal">
+    </edu.stanford.converstationv0.TagListView>
 
     <TextView
         android:paddingTop="20dp"

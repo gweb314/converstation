@@ -55,9 +55,8 @@ public class ConverStationProfile extends AppCompatActivity {
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.clock_tower_profile));
                 break;
             case "Stanford D.School":
-                locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.clock_tower_profile));
+                locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.stanford_d_school_profile));
                 usersList.add(new User(1));
-
                 break;
             default:
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.stanford_oval_profile));
@@ -101,6 +100,10 @@ public class ConverStationProfile extends AppCompatActivity {
             Random rand = new Random();
             rand = new Random();
             String number = String.valueOf(rand.nextInt(6));
+
+            if (locationName.equals("Stanford D.School")) {
+                number = "1";
+            }
 
             TextView numParticipantsView = view.findViewById(R.id.num_participants_TextView);
             numParticipantsView.setText(" + " + number + " others are talking about");

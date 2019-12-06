@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class ArrivedAtConversation extends AppCompatActivity {
 
     ArrayList<String> partners;
+    Boolean individualConversation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +23,9 @@ public class ArrivedAtConversation extends AppCompatActivity {
         setContentView(R.layout.activity_arrived_at_group_conversation);
 
         //If joining a group conversation from the converstation profile:
-
+        partners = new ArrayList<String>();
         User partner = new User(getIntent().getStringExtra("partner"));
+        individualConversation = getIntent().getStringExtra("individual").equals("true");
 
         ProfilePicView profileView = findViewById(R.id.partnerProfilePic);
         profileView.setImage(partner.getImage());
@@ -31,19 +33,35 @@ public class ArrivedAtConversation extends AppCompatActivity {
         TextView nameView = findViewById(R.id.partnerName);
         nameView.setText(partner.getName());
 
-        TextView otherParticipantsView = findViewById(R.id.num_participants);
-        otherParticipantsView.setText("+ 1 other");
+        TagListView interestView = findViewById(R.id.interests_view);
 
-        User secondPartner;
-
-        if (partner.getName().equals("Eli")) {
-            secondPartner = new User(1);
-        } else {
-            secondPartner = new User(0);
-        }
+        ArrayList<String> tags = new ArrayList<String>();
+        tags.add(partner.getInterests().get(0));
+        tags.add(partner.getInterests().get(partner.getInterests().size() - 1));
+        interestView.setTags(tags);
 
         partners.add(partner.toString());
-        partners.add(secondPartner.toString());
+
+        if (!individualConversation) {
+            TextView otherParticipantsView = findViewById(R.id.num_participants);
+            otherParticipantsView.setText("+ 1 other");
+
+            User secondPartner;
+
+            if (partner.getName().equals("Eli")) {
+                secondPartner = new User(1);
+            } else {
+                secondPartner = new User(0);
+            }
+
+            partners.add(secondPartner.toString());
+
+            TextView headerView = findViewById(R.id.arrived_heading);
+            headerView.setText("Joining a Group Conversation with");
+
+            TextView aboutView = findViewById(R.id.descriptor_view);
+            aboutView.setText("about");
+        }
     }
 
     public void leaveConvo(View view) {
@@ -71,13 +89,13 @@ public class ArrivedAtConversation extends AppCompatActivity {
     }
 
     public void startConvo(View v) {
-        if (partners.size() > 1) {
+        if (!individualConversation) {
             Intent myIntent = new Intent(ArrivedAtConversation.this, GroupConversationActivity.class);
             myIntent.putExtra("partners", partners);
             ArrivedAtConversation.this.startActivity(myIntent);
         } else {
             Intent myIntent = new Intent(ArrivedAtConversation.this, IndividualConversationActivity.class);
-            myIntent.putExtra("partners", partners.get(0));
+            myIntent.putExtra("partner", partners.get(0));
             ArrivedAtConversation.this.startActivity(myIntent);
         }
     }

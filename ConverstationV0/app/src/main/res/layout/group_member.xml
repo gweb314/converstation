@@ -13,7 +13,7 @@
 
         <edu.stanford.converstationv0.ProfilePicView
             android:id="@+id/pic_view"
-            size="150"
+            size="60"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_gravity="center_vertical" />
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
-            android:textSize="20dp"
+            android:textSize="24dp"
             android:textColor="@color/black"
             android:layout_gravity="center_vertical"
             android:paddingLeft="15dp"/>
