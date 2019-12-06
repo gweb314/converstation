@@ -41,6 +41,10 @@ public class PartnerProfile extends AppCompatActivity {
         partnerInterests = findViewById(R.id.partnerInterests);
 
         fillInPartnerInfo();
+        if(UserManager.hasExchanged(partner.getName()))
+        {
+            exchangeEmail(false);
+        }
     }
 
     ProfilePicView profilePic;
@@ -86,7 +90,7 @@ public class PartnerProfile extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        exchangeEmail();
+                        exchangeEmail(true);
                     }
                 });
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -100,17 +104,20 @@ public class PartnerProfile extends AppCompatActivity {
         dialog.show();
     }
 
-    private void exchangeEmail()
+    private void exchangeEmail(boolean showToast)
     {
-        Button button = findViewById(R.id.emailRequest);
         LinearLayout layout = findViewById(R.id.emailLayout);
         layout.removeAllViews();
         TextView newView = new TextView(this);
         newView.setText(partner.getEmail());
         newView.setTextSize(24);
         layout.addView(newView);
+        UserManager.exchangeEmail(partner.getName());
 
-        Toast toast = Toast.makeText(this, partner.getName() + " accepted your email exchange request", Toast.LENGTH_LONG);
-        toast.show();
+        if(showToast)
+        {
+            Toast toast = Toast.makeText(this, partner.getName() + " accepted your email exchange request", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 }
