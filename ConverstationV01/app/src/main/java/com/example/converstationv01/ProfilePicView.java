@@ -6,8 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -31,61 +29,34 @@ public class ProfilePicView extends View
         }
 
         bgPaint = new Paint();
-        bgPaint.setColor(getResources().getColor(R.color.colorPrimary));
+        bgPaint.setColor(getResources().getColor(R.color.colorPrimaryDark));
+        bgPaint.setStyle(Paint.Style.STROKE);
+        bgPaint.setStrokeWidth(25);
 
         setImage("userpic0");
     }
 
     Paint bgPaint;
     int size;
-    Bitmap image;
+    String image;
 
     @Override
     protected void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
-        canvas.drawCircle(getWidth() / 2, size, size, bgPaint);
-        int imageRadius = (int)(size * .9);
-        canvas.drawBitmap(image,
-                null, new Rect(getWidth() / 2 - imageRadius, size - imageRadius,
-                        getWidth() / 2 + imageRadius, size + imageRadius), null);
+
+        ResourceManager.drawProfilePic(canvas, bgPaint, image, size, getWidth());
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        setMeasuredDimension(widthMeasureSpec, size * 2);
+        setMeasuredDimension(size * 2, size * 2);
     }
 
     public void setImage(String imageString)
     {
-        if(imageString.equals("userpic0"))
-        {
-            Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic0)).getBitmap();
-            image = temp.copy(temp.getConfig(), true);
-        }
-        else if(imageString.equals("userpic1"))
-        {
-            Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic1)).getBitmap();
-            image = temp.copy(temp.getConfig(), true);
-        }
-        else if(imageString.equals("userpic2"))
-        {
-            Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic2)).getBitmap();
-            image = temp.copy(temp.getConfig(), true);
-        }
-        else if(imageString.equals("userpic3"))
-        {
-            Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic3)).getBitmap();
-            image = temp.copy(temp.getConfig(), true);
-        }
-        else
-        {
-            Bitmap temp = ((BitmapDrawable)getResources().getDrawable(R.drawable.userpic0)).getBitmap();
-            image = temp.copy(temp.getConfig(), true);
-        }
-
-        image.setHasAlpha(true);
-        cropCircle(image);
+        image = imageString;
+        invalidate();
     }
 
     private void cropCircle(Bitmap bitmap)
