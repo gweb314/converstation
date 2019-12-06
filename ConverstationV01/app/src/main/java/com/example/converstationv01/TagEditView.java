@@ -68,6 +68,13 @@ public class TagEditView extends TextInputEditText {
         return retval;
     }
 
+    public String getTagsString()
+    {
+        String retval = new String();
+        for(String s: tags) retval +=  (s + " ");
+        return retval;
+    }
+
     public void setTags(ArrayList<String> newTags)
     {
         String newText = "";

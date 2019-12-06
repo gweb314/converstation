@@ -289,4 +289,10 @@ public class NavigationSteps extends AppCompatActivity {
         NavigationSteps.this.startActivity(myIntent);
     }
 
+    public void viewLocationInfo(View v) {
+        Intent myIntent = new Intent(NavigationSteps.this, ConverStationInfo.class);
+        myIntent.putExtra("LocationName", mRouteInfo.converStationName);
+        NavigationSteps.this.startActivity(myIntent);
+    }
+
 }
