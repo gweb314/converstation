@@ -401,5 +401,19 @@ public class MapsActivity extends AppCompatActivity implements OnMyLocationButto
         }
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        if(targetLocation == null) {
+            Intent intent = new Intent(this, MainActivity.class);
+
+            startActivity(intent);
+        }
+        else
+        {
+            super.onBackPressed();
+        }
+    }
+
 }
 

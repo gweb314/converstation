@@ -19,7 +19,7 @@ public class FoundSomeoneActivity extends AppCompatActivity {
         setContentView(R.layout.activity_found_someone);
 
 
-        partner = new User((int)(Math.random() * 4), UserManager.getUser());
+        partner = new User((int)(Math.random() * 3 + 1), UserManager.getUser());
 
         profilePic = findViewById(R.id.partnerProfilePic);
 
@@ -52,7 +52,34 @@ public class FoundSomeoneActivity extends AppCompatActivity {
 
     public void cancel(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Are you sure you want to cancel?");
+        builder.setTitle("Are you sure you want to cancel the conversation?");
+        LayoutInflater inflater = getLayoutInflater();
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Intent intent = new Intent(FoundSomeoneActivity.this, MainActivity.class);
+                        Toast.makeText(FoundSomeoneActivity.this, "Conversation Canceled", Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+        builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Are you sure you want to cancel the conversation?");
         LayoutInflater inflater = getLayoutInflater();
         builder.setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {
