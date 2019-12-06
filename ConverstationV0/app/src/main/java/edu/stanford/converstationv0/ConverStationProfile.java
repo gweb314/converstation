@@ -183,4 +183,18 @@ public class ConverStationProfile extends AppCompatActivity {
             ConverStationProfile.this.startActivity(myIntent);
         }
     }
+
+    public void joinExisting(View v) {
+        if (locationName.equals("Stanford D.School")) {
+            Intent myIntent = new Intent(ConverStationProfile.this, ArrivedAtConversation.class);
+            myIntent.putExtra("partner", new User(1).toString());
+            myIntent.putExtra("individual", "false");
+            ConverStationProfile.this.startActivity(myIntent);
+        }
+        else {
+            Intent myIntent = new Intent(ConverStationProfile.this, MapsActivity.class);
+            myIntent.putExtra("LocationName", locationName);
+            ConverStationProfile.this.startActivity(myIntent);
+        }
+    }
 }

@@ -79,7 +79,7 @@
     <Button
         android:layout_marginRight="5dp"
         android:layout_marginLeft="10dp"
-        android:onClick="viewDirections"
+        android:onClick="joinExisting"
         android:layout_marginBottom="15dp"
         android:id="@+id/exit_text"
         android:layout_width="wrap_content"
