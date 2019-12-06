@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">ConverstationV0</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="dialog_message">Thank you for trying our hi-fi prototype for ConverStation!  Unfortunately the navigation feature is not fully implemented.  Click "Back" to return to the ConverStation Map.</string>
-    <string name="dialog_title">Thank you!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_schedule">schedule</string>
+    <string name="finding_you_someone_to_chat_with">Finding you someone to chat with...</string>
+    <string name="view_profile"><u>View Profile</u></string>
+    <string name="help_content">I don\'t know what to put here</string>
+    <string name="about_content">This is a high fidelity prototype made for Computer Science 147.</string>
+
+    <string-array name="weekdays">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
 </resources>

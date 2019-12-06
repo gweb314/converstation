@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textColor="@color/black"
+    tools:context=".AddTimeActivity">
+
+    <TextView
+        android:id="@+id/addTimePrompt"
+        android:layout_width="244dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Enter the time you'd like to add to your ConverStation Plan"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dayText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text="Day"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/dayLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/dayLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dayLayout"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dayText"
+        >
+        <Spinner
+            android:id="@+id/day"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+
+            android:textSize="32sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/startTimeText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Start Time"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/startTimeLayout"
+        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintStart_toStartOf="@id/startTimeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/dayLayout"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/startTimeLayout"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/startTimeText"
+        >
+        <TimePicker
+            android:id="@+id/startTime"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+
+            android:timePickerMode="spinner"
+
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/durationText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Duration (at least 15 minutes)"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@id/durrationLayout"
+        app:layout_constraintHorizontal_bias="0.316"
+        app:layout_constraintStart_toStartOf="@id/durrationLayout"
+        app:layout_constraintTop_toBottomOf="@id/startTimeLayout"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/durrationLayout"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/durationText"
+        >
+        <EditText
+            android:id="@+id/duration"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:textSize="24sp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/addTime"
+        android:layout_width="244dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="18sp"
+        android:text="Add to ConverStation Plan"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:onClick="addTimeToPlan"
+        />
+
+</android.support.constraint.ConstraintLayout>
