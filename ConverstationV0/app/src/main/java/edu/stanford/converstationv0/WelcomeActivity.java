@@ -12,12 +12,17 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         ResourceManager.loadProfilePics(this);
-        UserManager.setUserExists(false);
     }
 
     public void openCreateProfile(View view) {
         Intent intent = new Intent(this, EditProfileActivity.class);
 
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+
     }
 }

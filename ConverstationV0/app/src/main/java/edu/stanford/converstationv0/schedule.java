@@ -113,4 +113,9 @@ public class schedule extends AppCompatActivity {
         Toast toast = Toast.makeText(this, "Time Deleted", Toast.LENGTH_LONG);
         toast.show();
     }
+
+    public static void deletePlans()
+    {
+        plans.clear();
+    }
 }

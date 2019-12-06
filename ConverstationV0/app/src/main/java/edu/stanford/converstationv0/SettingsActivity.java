@@ -24,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
     TextView help_text;
     TextView about_text;
 
-    protected void resetPrototype(View view) {
+    public void resetPrototype(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Are you sure you want to delete your profile?");
         builder.setMessage("This cannot be undone.");
@@ -34,6 +34,8 @@ public class SettingsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface arg0, int arg1) {
                         Intent intent = new Intent(SettingsActivity.this, WelcomeActivity.class);
                         Toast.makeText(SettingsActivity.this, "Profile Deleted", Toast.LENGTH_LONG).show();
+                        UserManager.deleteUser();
+                        schedule.deletePlans();
                         startActivity(intent);
                     }
                 });
@@ -43,6 +45,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             }
         });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 

@@ -114,6 +114,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberSigned"
             android:textSize="24sp"
+            android:imeOptions="actionDone"
             />
     </android.support.design.widget.TextInputLayout>
 

@@ -50,19 +50,9 @@ public class UserManager{
         user = new User(newUser.toString());
     }
 
-    public static void setUserExists(boolean val)
-    {
-        userExists = val;
-    }
-
     public static boolean userExists()
     {
-        return userExists && user != null;
-    }
-
-    public static boolean isUserNull()
-    {
-        return user == null;
+        return user != null;
     }
 
     public static User getUser()
@@ -87,9 +77,13 @@ public class UserManager{
         return exchangedUsers.contains(name);
     }
 
+    public static void deleteUser()
+    {
+        user = null;
+        ResourceManager.addNewProfilePic("userPic", null);
+    }
+
     private static User user;
 
     private static HashSet<String> exchangedUsers;
-
-    private static boolean userExists;
 }
