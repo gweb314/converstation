@@ -39,16 +39,23 @@ public class ResourceManager
         return bitmap;
     }
 
+    public static void addNewProfilePic(String name, Bitmap image)
+    {
+        if(profilePics == null) return;
+        profilePics.put(name, image);
+    }
+
     public static Bitmap getProfilePic(String image)
     {
         if(profilePics == null) return null;
+        if(!profilePics.containsKey(image)) return null;
         return profilePics.get(image);
     }
 
     public static void drawProfilePic(Canvas canvas, Paint paint, String image, int size, int width)
     {
         int imageRadius = (int)(size * .9);
-        if(profilePics != null && image.length() > 0) {
+        if(profilePics != null && image != null && image.length() > 0 && getProfilePic(image) != null) {
             canvas.drawBitmap(getProfilePic(image),
                     null, new Rect(width / 2 - imageRadius, size - imageRadius,
                             width / 2 + imageRadius, size + imageRadius), null);

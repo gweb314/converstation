@@ -57,6 +57,7 @@ public class ProfilePicView extends View
     public void setImage(String imageString)
     {
         image = imageString;
+        invalidate();
     }
 
     private void cropCircle(Bitmap bitmap)
