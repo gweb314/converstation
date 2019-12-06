@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import edu.stanford.converstationv0.FoundSomeoneActivity;
+import edu.stanford.converstationv0.R;
+
 public class waiting extends AppCompatActivity {
 
     @Override
