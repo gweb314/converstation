@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class ArrivedAtConversation extends AppCompatActivity {
 
-    User partner;
+    ArrayList<String> partners;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,7 @@ public class ArrivedAtConversation extends AppCompatActivity {
 
         //If joining a group conversation from the converstation profile:
 
-        partner = new User(getIntent().getStringExtra("partner"));
+        User partner = new User(getIntent().getStringExtra("partner"));
 
         ProfilePicView profileView = findViewById(R.id.partnerProfilePic);
         profileView.setImage(partner.getImage());
@@ -31,6 +33,17 @@ public class ArrivedAtConversation extends AppCompatActivity {
 
         TextView otherParticipantsView = findViewById(R.id.num_participants);
         otherParticipantsView.setText("+ 1 other");
+
+        User secondPartner;
+
+        if (partner.getName().equals("Eli")) {
+            secondPartner = new User(1);
+        } else {
+            secondPartner = new User(0);
+        }
+
+        partners.add(partner.toString());
+        partners.add(secondPartner.toString());
     }
 
     public void leaveConvo(View view) {
@@ -58,8 +71,14 @@ public class ArrivedAtConversation extends AppCompatActivity {
     }
 
     public void startConvo(View v) {
-        Intent myIntent = new Intent(ArrivedAtConversation.this, IndividualConversationActivity.class);
-        myIntent.putExtra("partner",partner.toString());
-        ArrivedAtConversation.this.startActivity(myIntent);
+        if (partners.size() > 1) {
+            Intent myIntent = new Intent(ArrivedAtConversation.this, GroupConversationActivity.class);
+            myIntent.putExtra("partners", partners);
+            ArrivedAtConversation.this.startActivity(myIntent);
+        } else {
+            Intent myIntent = new Intent(ArrivedAtConversation.this, IndividualConversationActivity.class);
+            myIntent.putExtra("partners", partners.get(0));
+            ArrivedAtConversation.this.startActivity(myIntent);
+        }
     }
 }

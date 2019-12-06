@@ -21,8 +21,6 @@ public class FoundSomeoneActivity extends AppCompatActivity {
 
         partner = new User((int)(Math.random() * 4), UserManager.getUser());
 
-        
-
         profilePic = findViewById(R.id.partnerProfilePic);
 
         partnerName = findViewById(R.id.partnerName);
