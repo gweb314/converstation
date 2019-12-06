@@ -190,6 +190,8 @@ public class MapsActivity extends AppCompatActivity implements OnMyLocationButto
                 1.0f
         );
         mapContainer.setLayoutParams(param);
+        targetLocation = getIntent().getStringExtra("LocationName");
+
     }
 
 
@@ -239,11 +241,15 @@ public class MapsActivity extends AppCompatActivity implements OnMyLocationButto
                             mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(37.4280, -122.17180)));
                             mMap.getUiSettings().setZoomControlsEnabled(true);
                             mMap.setMinZoomPreference(16.0f);
+                            if(targetLocation != null) {
+                                onTargetChosen();
+                            }
                         } else {
                             Log.d("Debugging Location", "I see problems.");
                         }
                     }
                 });
+
     }
 
     private void getLocationPermission() {
@@ -290,9 +296,23 @@ public class MapsActivity extends AppCompatActivity implements OnMyLocationButto
 
     @Override
     public boolean onMarkerClick(final Marker marker) {
+        if (targetLocation == null) {
+            Intent myIntent = new Intent(MapsActivity.this, ConverStationProfile.class);
+            myIntent.putExtra("LocationName", marker.getTitle());
+            MapsActivity.this.startActivity(myIntent);
+        }
+        return true;
+    }
 
-        headBar.setText(marker.getTitle());
-        targetLocation = marker.getTitle();
+    public void onTargetChosen() {
+
+        headBar.setText(targetLocation);
+        Marker marker = null;
+        for (Marker m : converStationMarkers) {
+            if (m.getTitle().equals(targetLocation)) {
+                marker = m;
+            }
+        }
 
         navBar.setVisibility(View.VISIBLE);
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
@@ -377,7 +397,6 @@ public class MapsActivity extends AppCompatActivity implements OnMyLocationButto
             PolylineOptions opts = new PolylineOptions().addAll(path).color(this.getResources().getColor(R.color.colorAccent)).width(15);
             mPolyline = mMap.addPolyline(opts);
         }
-        return true;
     }
 
     public void startNavigation(View v) {

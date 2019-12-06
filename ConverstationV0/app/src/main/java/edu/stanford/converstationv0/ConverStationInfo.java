@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.support.constraint.ConstraintLayout;
+import android.support.constraint.Group;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,8 +18,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ConverStationInfo extends AppCompatActivity {
 
@@ -35,9 +40,14 @@ public class ConverStationInfo extends AppCompatActivity {
 
         locationNameView.setText(locationName);
 
-        switch(locationName) {
+        Random rand = new Random();
+        int nameIndex;
+        String currentName;
+        String number;
+
+        switch (locationName) {
             case "The Oval":
-                locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.stanford_oval_profile));
+                locationImageView.setImageDrawable((Drawable) getResources().getDrawable(R.drawable.stanford_oval_profile));
                 featuresList = new ArrayList<String>() {{
                     add("Outdoors");
                     add("Scenic");
@@ -48,7 +58,7 @@ public class ConverStationInfo extends AppCompatActivity {
                 }};
                 break;
             case "Garden by MemChu":
-                locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.memorial_church_garden_profile));
+                locationImageView.setImageDrawable((Drawable) getResources().getDrawable(R.drawable.memorial_church_garden_profile));
                 featuresList = new ArrayList<String>() {{
                     add("Outdoors");
                     add("Nearby Restrooms");
@@ -63,7 +73,7 @@ public class ConverStationInfo extends AppCompatActivity {
                 }};
                 break;
             case "Roble Arts Gym Courtyard":
-                locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.roble_court_profile));
+                locationImageView.setImageDrawable((Drawable) getResources().getDrawable(R.drawable.roble_court_profile));
                 featuresList = new ArrayList<String>() {{
                     add("Outdoors");
                     add("Nearby Restrooms");
@@ -78,7 +88,7 @@ public class ConverStationInfo extends AppCompatActivity {
                 }};
                 break;
             case "Tresidder Union":
-                locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.tresidder_union_profile));
+                locationImageView.setImageDrawable((Drawable) getResources().getDrawable(R.drawable.tresidder_union_profile));
                 featuresList = new ArrayList<String>() {{
                     add("Indoor/Outdoor");
                     add("Nearby Restrooms");
@@ -91,7 +101,7 @@ public class ConverStationInfo extends AppCompatActivity {
                 }};
                 break;
             case "The Clocktower":
-                locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.clock_tower_profile));
+                locationImageView.setImageDrawable((Drawable) getResources().getDrawable(R.drawable.clock_tower_profile));
                 featuresList = new ArrayList<String>() {{
                     add("Outdoors");
                     add("Nearby Restrooms");
@@ -102,7 +112,7 @@ public class ConverStationInfo extends AppCompatActivity {
                 }};
                 break;
             case "Stanford D.School":
-                locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.clock_tower_profile));
+                locationImageView.setImageDrawable((Drawable) getResources().getDrawable(R.drawable.clock_tower_profile));
                 featuresList = new ArrayList<String>() {{
                     add("Indoors");
                     add("Nearby Restrooms");
@@ -115,10 +125,9 @@ public class ConverStationInfo extends AppCompatActivity {
                 }};
                 break;
             default:
-                locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.stanford_oval_profile));
+                locationImageView.setImageDrawable((Drawable) getResources().getDrawable(R.drawable.stanford_oval_profile));
                 featuresList = new ArrayList<String>();
                 featuresIcons = new ArrayList<Drawable>();
-
         }
 
         ArrayList<Feature> featureObjects = new ArrayList<Feature>();
@@ -132,6 +141,19 @@ public class ConverStationInfo extends AppCompatActivity {
 
         ListView featureContainer = findViewById(R.id.converstation_feature_container);
         featureContainer.setAdapter(adapter);
+    }
+
+    public class GroupConversation {
+
+        String hostName;
+        String number;
+        ArrayList<String> topics;
+
+        public GroupConversation(String name, String num, ArrayList<String> t) {
+            hostName = name;
+            number = num;
+            topics = t;
+        }
     }
 
     public class Feature {

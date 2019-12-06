@@ -295,4 +295,11 @@ public class NavigationSteps extends AppCompatActivity {
         NavigationSteps.this.startActivity(myIntent);
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+
 }
