@@ -28,6 +28,21 @@ public class ResourceManager
         profilePics.put("userpic2", loadProfilePic(context, R.drawable.userpic2));
         profilePics.put("userpic3", loadProfilePic(context, R.drawable.userpic3));
 
+        profilePics.put("random_user_alex", loadProfilePic(context, R.drawable.random_user_alex));
+        profilePics.put("random_user_alicia", loadProfilePic(context, R.drawable.random_user_alicia));
+        profilePics.put("random_user_ben", loadProfilePic(context, R.drawable.random_user_ben));
+        profilePics.put("random_user_brian", loadProfilePic(context, R.drawable.random_user_brian));
+        profilePics.put("random_user_eric", loadProfilePic(context, R.drawable.random_user_eric));
+        profilePics.put("random_user_hope", loadProfilePic(context, R.drawable.random_user_hope));
+        profilePics.put("random_user_jay", loadProfilePic(context, R.drawable.random_user_jay));
+        profilePics.put("random_user_josh", loadProfilePic(context, R.drawable.random_user_josh));
+        profilePics.put("random_user_julia", loadProfilePic(context, R.drawable.random_user_julia));
+        profilePics.put("random_user_milen", loadProfilePic(context, R.drawable.random_user_milen));
+        profilePics.put("random_user_neil", loadProfilePic(context, R.drawable.random_user_neil));
+        profilePics.put("random_user_nick", loadProfilePic(context, R.drawable.random_user_nick));
+        profilePics.put("random_user_sofia", loadProfilePic(context, R.drawable.random_user_sofia));
+        profilePics.put("random_user_sophie", loadProfilePic(context, R.drawable.random_user_sophie));
+
         border = ((BitmapDrawable)context.getResources().getDrawable(R.drawable.border)).getBitmap();
     }
 
