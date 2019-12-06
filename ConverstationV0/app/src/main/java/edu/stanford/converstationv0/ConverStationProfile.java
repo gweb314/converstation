@@ -131,6 +131,7 @@ public class ConverStationProfile extends AppCompatActivity {
         if (locationName.equals("Stanford D.School")) {
             Intent myIntent = new Intent(ConverStationProfile.this, ArrivedAtConversation.class);
             myIntent.putExtra("partner", new User(1).toString());
+            myIntent.putExtra("individual", "false");
             ConverStationProfile.this.startActivity(myIntent);
         }
         else {
