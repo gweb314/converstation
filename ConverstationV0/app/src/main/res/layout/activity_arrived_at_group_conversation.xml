@@ -37,6 +37,7 @@
     <!-- Profile thing goes here -->
     <edu.stanford.converstationv0.ProfilePicView
         android:id="@+id/partnerProfilePic"
+        android:onClick="viewProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -49,6 +50,7 @@
     <TextView
         android:id="@+id/partnerName"
         android:layout_width="wrap_content"
+        android:onClick="viewProfile"
         android:layout_height="wrap_content"
         android:textColor="@color/darkGray"
         app:layout_constraintEnd_toEndOf="parent"

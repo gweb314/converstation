@@ -125,4 +125,11 @@ public class ArrivedAtConversation extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+    public void viewProfile(View view) {
+        Intent intent = new Intent(this, PartnerProfile.class);
+        intent.putExtra("partner", partners.get(0).toString());
+
+        startActivity(intent);
+    }
 }

@@ -81,6 +81,7 @@ public class UserManager{
     {
         user = null;
         ResourceManager.addNewProfilePic("userPic", null);
+        exchangedUsers = null;
     }
 
     private static User user;

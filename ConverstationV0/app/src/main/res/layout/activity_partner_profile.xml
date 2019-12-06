@@ -140,6 +140,7 @@
             android:layout_height="wrap_content"
             android:text="Exchange Email Address"
             android:onClick="requestEmail"
+            android:textColor="@color/white"
             />
     </LinearLayout>
 
