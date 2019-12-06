@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ConverStationInfo"></activity>
+        <activity android:name=".ConverStationProfile"></activity>
         <activity android:name=".ArrivedAtGroupConversation" />
         <activity android:name=".NavigationSteps" />
         <!--

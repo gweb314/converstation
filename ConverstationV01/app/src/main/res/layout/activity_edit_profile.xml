@@ -169,7 +169,7 @@
             android:layout_marginRight="5dp"
             android:text="Save Profile"
             android:onClick="saveProfile"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
             />
 

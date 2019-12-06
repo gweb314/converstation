@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="Start Navigation"
+            android:text="Get Directions"
             android:onClick="startNavigation"
             android:textColor="@color/white"
             android:background="@drawable/rounded_button_bg"
