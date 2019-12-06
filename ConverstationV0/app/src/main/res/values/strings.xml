@@ -7,7 +7,7 @@
     <string name="help_content">ConverStation will pair you with someone based on shared interests and navigate you to a meeting point. These meeting points, or ConverStations,
     are selected by our team, and our app will not share your location with anyone else, so it is safe to use. Contact information
     will only be shared if you, from a view of their profile, choose to share it with them. You can also schedule s
-    reoccurring times that you would like to meet via the Conversation Scheduler, and we'll remind you when the time comes. Converstation also allows you to host and join group conversations.
+    reoccurring times that you would like to meet via the Conversation Scheduler, and we\'ll remind you when the time comes. Converstation also allows you to host and join group conversations.
     You can start a group conversation from an ongoing conversation, or from the Group Conversation Map. From here, you can
     view ConverStations, their amenities, and ongoing group conversations.</string>
     <string name="about_content">This is a high fidelity prototype made for Computer Science 147.</string>
