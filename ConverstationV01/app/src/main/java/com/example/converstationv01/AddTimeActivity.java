@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class AddTimeActivity extends AppCompatActivity {
 
     @Override
@@ -23,9 +25,14 @@ public class AddTimeActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> dayAdapter = ArrayAdapter.createFromResource(this, R.array.weekdays, R.layout.weekday_spinner_item);
         dayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         daySpinner.setAdapter(dayAdapter);
+
+        dayLayout = findViewById(R.id.dayLayout);
+        startTimeLayout = findViewById(R.id.startTimeLayout);
+        durrationLayout = findViewById(R.id.durrationLayout);
     }
 
     Spinner daySpinner;
+    TextInputLayout dayLayout, startTimeLayout, durrationLayout;
 
     public void addTimeToPlan(View view)
     {
@@ -35,33 +42,44 @@ public class AddTimeActivity extends AppCompatActivity {
         int start = timePicker.getCurrentHour() * 60 + timePicker.getCurrentMinute();
         EditText text = findViewById(R.id.duration);
 
-        findViewById(R.id.startTimeText).setBackgroundColor(Color.TRANSPARENT);
-        findViewById(R.id.durationText).setBackgroundColor(Color.TRANSPARENT);
+        boolean valid = true;
 
         if(text.getText().toString().equals(""))
         {
-            Toast toast = Toast.makeText(this, "Please specify a duration", Toast.LENGTH_LONG);
-            toast.show();
-            findViewById(R.id.durationText).setBackgroundColor(Color.parseColor("#ff3232"));
-            return;
+            durrationLayout.setErrorEnabled(true);
+            durrationLayout.setError("Please specify a duration");
+            System.out.println("Please specify a duration");
+            valid = false;
         }
-        int duration = Integer.parseInt(text.getText().toString());
 
-        if(duration < 15)
+        else if(Integer.parseInt(text.getText().toString()) < 15)
         {
-            Toast toast = Toast.makeText(this, "Duration must be at least 15 minutes", Toast.LENGTH_LONG);
-            toast.show();
-            findViewById(R.id.durationText).setBackgroundColor(Color.parseColor("#ff3232"));
-            return;
+            durrationLayout.setErrorEnabled(true);
+            durrationLayout.setError("Duration must be at least 15 minutes");
+            System.out.println("Duration must be at least 15 minutes");
+            valid = false;
+        }
+
+        else
+        {
+            durrationLayout.setErrorEnabled(false);
         }
 
         if(Plan.MAXTIME - start < 15)
         {
-            Toast toast = Toast.makeText(this, "Start time must be at least 15 minutes before midnight", Toast.LENGTH_LONG);
-            toast.show();
-            findViewById(R.id.startTimeText).setBackgroundColor(Color.parseColor("#ff3232"));
-            return;
+            startTimeLayout.setErrorEnabled(true);
+            startTimeLayout.setError("Start time must be at least 15 minutes before midnight");
+            System.out.println("Start time must be at least 15 minutes before midnight");
+            valid = false;
         }
+        else
+        {
+            startTimeLayout.setErrorEnabled(false);
+        }
+
+        if(!valid) return;
+
+        int duration = Integer.parseInt(text.getText().toString());
 
         if(start + duration > 1440)
         {

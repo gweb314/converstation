@@ -1,8 +1,12 @@
 package com.example.converstationv01;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -33,6 +37,7 @@ public class EditProfileActivity extends AppCompatActivity {
         editInterests = findViewById(R.id.interestsEdit);
 
         nameLayout = findViewById(R.id.nameLayout);
+        picLayout = findViewById(R.id.picLayout);
 
         if(UserManager.userExists())
         {
@@ -61,17 +66,35 @@ public class EditProfileActivity extends AppCompatActivity {
     ProfilePicView editProfilePic;
     TagEditView editInterests;
     String image = "userPic";
-    TextInputLayout nameLayout;
+    TextInputLayout nameLayout, picLayout;
     Button cancel;
 
     public void saveProfile(View view) {
         boolean firstTime = !UserManager.userExists();
+        boolean invalid = false;
         if(!validName(editName.getText().toString()))
         {
             nameLayout.setErrorEnabled(true);
             nameLayout.setError("Name is Required");
-            return;
+            invalid = true;
         }
+        else
+        {
+            nameLayout.setErrorEnabled(false);
+        }
+
+        if(!ResourceManager.picExists("userPic"))
+        {
+            picLayout.setErrorEnabled(true);
+            picLayout.setError("Profile Pic is Required");
+            invalid = true;
+        }
+        else
+        {
+            picLayout.setErrorEnabled(false);
+        }
+
+        if(invalid) return;
 
         User user = new User(editName.getText().toString(),
                 editPronouns.getText().toString(),
@@ -117,6 +140,52 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public void changePic(View view)
     {
+        System.out.println("Clicked");
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            System.out.println("Asking Permission");
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        1);
+        } else {
+            System.out.println("Already Has Permission");
+            accessCamera();
+        }
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String[] permissions, int[] grantResults) {
+        System.out.println("Got Response");
+        switch (requestCode) {
+            case 1: {
+                System.out.println("Case 1");
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    System.out.println("Accepted");
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                    accessCamera();
+                } else {
+                    System.out.println("Denied");
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request.
+        }
+    }
+
+    private void accessCamera()
+    {
+        System.out.println("Accessing camera");
         Intent i = new Intent(
                 Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

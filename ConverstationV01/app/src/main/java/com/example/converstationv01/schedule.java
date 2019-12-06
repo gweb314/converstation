@@ -23,24 +23,8 @@ public class schedule extends AppCompatActivity {
         setContentView(R.layout.activity_schedule);
 
 
-       plans = new ArrayList<Plan>();
+       if(plans == null) plans = new ArrayList<Plan>();
 
-        FileInputStream fis = null;
-        try {
-            fis = openFileInput("ConverStationPlans");
-            Scanner scanner = new Scanner(fis);
-            scanner.useDelimiter(",");
-            while(scanner.hasNext())
-            {
-                int day = Integer.parseInt(scanner.next());
-                int start = Integer.parseInt(scanner.next());
-                int duration = Integer.parseInt(scanner.next());
-                plans.add(new Plan(day, start, duration));
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
        int day = getIntent().getIntExtra("day", -1);
        if(day >= 0)
@@ -57,7 +41,7 @@ public class schedule extends AppCompatActivity {
                }
            }
            plans.add(newPlan);
-           savePlans();
+           //savePlans();
        }
 
        calendarView = findViewById(R.id.calendarView);
@@ -72,7 +56,7 @@ public class schedule extends AppCompatActivity {
         startActivity(intent);
     }
 
-    ArrayList<Plan> plans;
+    static ArrayList<Plan> plans;
     CalendarView calendarView;
 
 
@@ -84,7 +68,6 @@ public class schedule extends AppCompatActivity {
 
     public void savePlans()
     {
-        System.out.println("Saving . . .");
         String saveData = "";
 
         for(Plan plan: plans)
@@ -101,13 +84,33 @@ public class schedule extends AppCompatActivity {
         }
     }
 
+    private void loadPlans()
+    {
+        FileInputStream fis = null;
+        try {
+            fis = openFileInput("ConverStationPlans");
+            Scanner scanner = new Scanner(fis);
+            scanner.useDelimiter(",");
+            while(scanner.hasNext())
+            {
+                int day = Integer.parseInt(scanner.next());
+                int start = Integer.parseInt(scanner.next());
+                int duration = Integer.parseInt(scanner.next());
+                plans.add(new Plan(day, start, duration));
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void deletePlan(View view)
     {
         Plan plan = calendarView.getSelected();
         if(plan == null) return;
         plans.remove(plan);
         calendarView.setPlans(plans);
-        savePlans();
+        //savePlans();
         Toast toast = Toast.makeText(this, "Time Deleted", Toast.LENGTH_LONG);
         toast.show();
     }
