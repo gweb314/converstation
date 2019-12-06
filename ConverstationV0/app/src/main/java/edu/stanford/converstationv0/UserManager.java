@@ -77,6 +77,12 @@ public class UserManager{
         return exchangedUsers.contains(name);
     }
 
+    public static void deleteUser()
+    {
+        user = null;
+        ResourceManager.addNewProfilePic("userPic", null);
+    }
+
     private static User user;
 
     private static HashSet<String> exchangedUsers;
