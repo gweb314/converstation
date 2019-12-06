@@ -11,7 +11,7 @@
     You can start a group conversation from an ongoing conversation, or from the Group Conversation Map. From here, you can
     view ConverStations, their amenities, and ongoing group conversations.</string>
 
-    <string name="about_content">This is a high fidelity prototype made for Computer Science 147. </string>
+    <string name="about_content">This is a high fidelity prototype made for Computer Science 147: Introduction to Human-Computer Interaction Design. </string>
 
     <string-array name="weekdays">
         <item>Sunday</item>
