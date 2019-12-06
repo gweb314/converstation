@@ -48,7 +48,7 @@
         app:layout_constraintBottom_toTopOf="@+id/addNewTime"
         app:layout_constraintHorizontal_bias="0.497">
 
-        <com.example.converstationv01.CalendarView
+        <edu.stanford.converstationv0.CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
