@@ -15,6 +15,8 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void openCreateProfile(View view) {
+        UserManager.deleteUser();
+        schedule.deletePlans();
         Intent intent = new Intent(this, EditProfileActivity.class);
 
         startActivity(intent);
