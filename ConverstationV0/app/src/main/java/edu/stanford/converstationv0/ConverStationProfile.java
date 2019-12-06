@@ -157,7 +157,10 @@ public class ConverStationProfile extends AppCompatActivity {
                         public void onClick(DialogInterface arg0, int arg1) {
                             Intent intent = new Intent(ConverStationProfile.this, GroupConversationActivity.class);
                             Toast.makeText(ConverStationProfile.this, "Conversation Created", Toast.LENGTH_LONG).show();
-                            intent.putExtra("partners", new ArrayList<String>() {{  }});
+                            ArrayList<String> partners = new ArrayList<String>();
+                            partners.add(new User(0).toString());
+                            partners.add(new User(2).toString());
+                            intent.putExtra("partners", partners);
                             intent.putExtra("individual", "false");
                             TagEditView tags = dialogLayout.findViewById(R.id.tagEditView);
                             intent.putExtra("tags", tags.getTagsString());
