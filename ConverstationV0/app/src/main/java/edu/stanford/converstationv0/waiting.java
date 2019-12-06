@@ -39,6 +39,7 @@ public class waiting extends AppCompatActivity {
     }
 
     public void cancel(View view) {
+        findingTimer.cancel();
         finish();
     }
 
