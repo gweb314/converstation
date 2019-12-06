@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class EditProfileActivity extends AppCompatActivity {
 
     @Override
@@ -35,7 +37,7 @@ public class EditProfileActivity extends AppCompatActivity {
         nameLayout = findViewById(R.id.nameLayout);
         picLayout = findViewById(R.id.picLayout);
 
-        if(!UserManager.isUserNull())
+        if(UserManager.userExists())
         {
             User user = UserManager.getUser();
 
@@ -48,7 +50,7 @@ public class EditProfileActivity extends AppCompatActivity {
             editProfilePic.setImage(image);
             editInterests.setTags(user.getInterests());
         }
-        if(!UserManager.userExists())
+        else
         {
             editProfilePic.setImage("userPic");
             cancel =  findViewById(R.id.Cancel);
@@ -61,8 +63,21 @@ public class EditProfileActivity extends AppCompatActivity {
         {
             ResourceManager.addNewProfilePic("userPic", ResourceManager.getProfilePic(getIntent().getStringExtra("pic")));
         }
+
+        if(interests == null) interests = new ArrayList<String>();
+        else
+        {
+            editName.setText(name);
+            editPronouns.setText(pronouns);
+            editMajor.setText(major);
+            editMinor.setText(minor);
+            editEmail.setText(email);
+            editInterests.setTags(interests);
+        }
     }
 
+    static String name, pronouns, major, minor, email;
+    static ArrayList<String> interests;
     EditText editName, editPronouns, editMajor, editMinor, editEmail;
     ProfilePicView editProfilePic;
     TagEditView editInterests;
@@ -105,7 +120,8 @@ public class EditProfileActivity extends AppCompatActivity {
                 image,
                 editInterests.getTags());
         UserManager.setUser(user);
-        UserManager.setUserExists(true);
+
+        interests = null;
 
         Intent intent;
         if(firstTime)
@@ -142,14 +158,12 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public void changePic(View view)
     {
-        User user = new User(editName.getText().toString(),
-                editPronouns.getText().toString(),
-                editMajor.getText().toString(),
-                editMinor.getText().toString(),
-                editEmail.getText().toString(),
-                image,
-                editInterests.getTags());
-        UserManager.setUser(user);
+        name = editName.getText().toString();
+        pronouns = editPronouns.getText().toString();
+        major = editMajor.getText().toString();
+        minor = editMinor.getText().toString();
+        email = editEmail.getText().toString();
+        interests = editInterests.getTags();
 
         Intent intent = new Intent(this, PhotoPickerActivity.class);
 
