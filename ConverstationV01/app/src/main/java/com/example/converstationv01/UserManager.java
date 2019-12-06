@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -57,11 +59,34 @@ public class UserManager{
         user = new User(newUser.toString());
     }
 
+    public static boolean userExists()
+    {
+        return user != null;
+    }
+
     public static User getUser()
     {
-        if(user == null) user = new User(0);
+        if(user == null) user = new User("", "", "", "", "", "userpic0", new ArrayList<String>());
         return new User(user.toString());
     }
 
+    public static void exchangeEmail(String name)
+    {
+        if(exchangedUsers == null) exchangedUsers = new HashSet<String>();
+
+        if(!exchangedUsers.contains(name))
+        {
+            exchangedUsers.add(name);
+        }
+    }
+
+    public static boolean hasExchanged(String name)
+    {
+        if(exchangedUsers == null) return false;
+        return exchangedUsers.contains(name);
+    }
+
     private static User user;
+
+    private static HashSet<String> exchangedUsers;
 }

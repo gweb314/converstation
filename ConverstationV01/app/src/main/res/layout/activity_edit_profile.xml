@@ -16,91 +16,134 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:onClick="changePic"
         />
 
-    <EditText
-        android:id="@+id/nameEdit"
-        android:layout_width="250dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameLayout"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editProfilePic"
         android:hint="Name"
-        android:inputType="text"
-        android:imeOptions="actionDone"
-        />
+        app:hintEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameEdit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/pronounsEdit"
-        android:layout_width="250dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pronounsLayout"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameEdit"
+        app:layout_constraintTop_toBottomOf="@id/nameLayout"
         android:hint="Pronouns (Optional)"
-        android:inputType="text"
-        android:imeOptions="actionDone"
-        />
+        app:hintEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pronounsEdit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/majorEdit"
-        android:layout_width="250dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/majorLayout"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pronounsEdit"
+        app:layout_constraintTop_toBottomOf="@id/pronounsLayout"
         android:hint="Major (Optional)"
-        android:inputType="text"
-        android:imeOptions="actionDone"
-        />
+        app:hintEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/majorEdit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/minorEdit"
-        android:layout_width="250dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/minorLayout"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/majorEdit"
+        app:layout_constraintTop_toBottomOf="@id/majorLayout"
         android:hint="Minor (Optional)"
-        android:inputType="text"
-        android:imeOptions="actionDone"
-        />
+        app:hintEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/minorEdit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/emailEdit"
-        android:layout_width="250dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLayout"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/minorEdit"
+        app:layout_constraintTop_toBottomOf="@id/minorLayout"
         android:hint="Email (Optional)"
-        android:inputType="text"
-        android:imeOptions="actionDone"
-        />
+        app:hintEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEdit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.example.converstationv01.TagEditView
-        android:id="@+id/interestsEdit"
-        android:layout_width="250dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/interestsLayout"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailEdit"
+        app:layout_constraintTop_toBottomOf="@id/emailLayout"
         android:hint="Interests (Optional)"
-        android:inputType="text"
-        android:imeOptions="actionDone"
-        />
+        app:hintEnabled="true"
+        >
+        <com.example.converstationv01.TagEditView
+            android:id="@+id/interestsEdit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -115,18 +158,24 @@
         >
         <Button
             android:id="@+id/saveProfile"
-            android:layout_width="168dp"
+            android:layout_width="180dp"
             android:layout_height="53dp"
+            android:layout_marginRight="5dp"
             android:text="Save Profile"
             android:onClick="saveProfile"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
             />
 
         <Button
             android:id="@+id/Cancel"
-            android:layout_width="168dp"
+            android:layout_width="60dp"
             android:layout_height="53dp"
+            android:layout_marginLeft="5dp"
             android:text="Cancel"
             android:onClick="cancel"
+            android:background="@color/red"
+            android:textColor="@android:color/white"
             />
     </LinearLayout>
 

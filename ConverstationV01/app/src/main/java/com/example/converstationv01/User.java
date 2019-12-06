@@ -91,6 +91,7 @@ public class User
 
     public User(String userString)
     {
+        System.out.println(userString);
         Scanner scanner = new Scanner(userString);
         scanner.useDelimiter(";");
         name = scanner.next();
