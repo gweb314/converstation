@@ -31,7 +31,7 @@ public class CalendarView extends View
         textPaint.setTextAlign(Paint.Align.CENTER);
 
         planPaint = new Paint();
-        planPaint.setColor(getResources().getColor(R.color.colorPrimaryDark));
+        planPaint.setColor(getResources().getColor(R.color.colorPrimary));
 
         highlightPaint = new Paint();
         highlightPaint.setColor(Color.parseColor("#ff3232"));

@@ -35,7 +35,7 @@ public class EditProfileActivity extends AppCompatActivity {
         nameLayout = findViewById(R.id.nameLayout);
         picLayout = findViewById(R.id.picLayout);
 
-        if(UserManager.userExists())
+        if(!UserManager.isUserNull())
         {
             User user = UserManager.getUser();
 
@@ -48,7 +48,7 @@ public class EditProfileActivity extends AppCompatActivity {
             editProfilePic.setImage(image);
             editInterests.setTags(user.getInterests());
         }
-        else
+        if(!UserManager.userExists())
         {
             editProfilePic.setImage("userPic");
             cancel =  findViewById(R.id.Cancel);
@@ -105,6 +105,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 image,
                 editInterests.getTags());
         UserManager.setUser(user);
+        UserManager.setUserExists(true);
 
         Intent intent;
         if(firstTime)
@@ -141,6 +142,15 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public void changePic(View view)
     {
+        User user = new User(editName.getText().toString(),
+                editPronouns.getText().toString(),
+                editMajor.getText().toString(),
+                editMinor.getText().toString(),
+                editEmail.getText().toString(),
+                image,
+                editInterests.getTags());
+        UserManager.setUser(user);
+
         Intent intent = new Intent(this, PhotoPickerActivity.class);
 
         startActivity(intent);

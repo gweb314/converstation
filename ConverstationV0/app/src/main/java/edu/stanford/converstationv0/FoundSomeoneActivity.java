@@ -19,7 +19,7 @@ public class FoundSomeoneActivity extends AppCompatActivity {
         setContentView(R.layout.activity_found_someone);
 
 
-        partner = new User((int)(Math.random() * 3 + 1), UserManager.getUser());
+        partner = new User((int)(Math.random() * 4), UserManager.getUser());
 
         
 

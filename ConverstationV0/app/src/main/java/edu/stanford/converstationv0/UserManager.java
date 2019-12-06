@@ -50,9 +50,19 @@ public class UserManager{
         user = new User(newUser.toString());
     }
 
+    public static void setUserExists(boolean val)
+    {
+        userExists = val;
+    }
+
     public static boolean userExists()
     {
-        return user != null;
+        return userExists && user != null;
+    }
+
+    public static boolean isUserNull()
+    {
+        return user == null;
     }
 
     public static User getUser()
@@ -80,4 +90,6 @@ public class UserManager{
     private static User user;
 
     private static HashSet<String> exchangedUsers;
+
+    private static boolean userExists;
 }

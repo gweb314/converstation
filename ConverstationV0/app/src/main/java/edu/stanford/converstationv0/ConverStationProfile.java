@@ -30,142 +30,52 @@ public class ConverStationProfile extends AppCompatActivity {
         locationName = (String) getIntent().getStringExtra("LocationName");
         TextView locationNameView = findViewById(R.id.converstation_TextView);
         ImageView locationImageView = findViewById(R.id.converstation_ImageView);
-        ArrayList<GroupConversation> conversationsList;
-        ArrayList<String> names = new ArrayList<String>() {{
-            add("Alex");
-            add("Alicia");
-            add("Ben");
-            add("Brian");
-            add("Eric");
-            add("Hope");
-            add("Jay");
-            add("Josh");
-            add("Julia");
-            add("Milen");
-            add("Neil");
-            add("Nick");
-            add("Sofia");
-            add("Sophie");
-        }};
-
         locationNameView.setText(locationName);
 
-        Random rand = new Random();
-        int nameIndex;
-        String currentName;
-        String number;
-
-        conversationsList = new ArrayList<GroupConversation>();
+        ArrayList<User> usersList = new ArrayList<User>();
 
         switch(locationName) {
             case "The Oval":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.stanford_oval_profile));
-                conversationsList = new ArrayList<GroupConversation>();
                 break;
             case "Garden by MemChu":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.memorial_church_garden_profile));
-                conversationsList = new ArrayList<GroupConversation>();
                 break;
             case "Roble Arts Gym Courtyard":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.roble_court_profile));
-
-                nameIndex = rand.nextInt(names.size());
-
-                currentName = names.get(nameIndex);
-                names.remove(nameIndex);
-
-                rand = new Random();
-
-                number = String.valueOf(rand.nextInt(6));
-
-                conversationsList = new ArrayList<GroupConversation>();
-                conversationsList.add(
-                        new GroupConversation(
-                                currentName,
-                                number,
-                                new ArrayList<String>() {{
-                                    add("Musicals");
-                                    add("DanceHistory");
-                                }}));
-
+                usersList.add(new User("Ben", "He/him", "TAPS", "", "ben@stanford.edu", "random_user_ben", new ArrayList<String>() {{add("Musicals");add("DanceHistory"); }}));
                 break;
             case "Tresidder Union":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.tresidder_union_profile));
-                conversationsList = new ArrayList<GroupConversation>();
-                ArrayList<ArrayList<String>> topics = new ArrayList<ArrayList<String>>() {{
-                    add(new ArrayList<String>() {{
-                        add("Chess");
-                        add("AI");
-                    }});
-                    add(new ArrayList<String>() {{
-                        add("Baking");
-                        add("TGBBS");
-                    }});
-                    add(new ArrayList<String>() {{
-                        add("HarryPotter");
-                        add("Movies");
-                    }});
-                }};
-                for (int i = 0; i < 3; i++) {
-                    rand = new Random();
-                    nameIndex = rand.nextInt(names.size());
-
-                    currentName = names.get(nameIndex);
-                    names.remove(nameIndex);
-
-                    rand = new Random();
-
-                    number = String.valueOf(rand.nextInt(6));
-                    conversationsList.add(new GroupConversation(currentName, number, topics.get(i)));
-                }
+                usersList.add(new User("Jay", "They/Then", "Computer Science", "Econ", "jay@stanford.edu", "random_user_jay", new ArrayList<String>() {{add("Chess");add("AI"); }}));
+                usersList.add(new User("Hope", "She/Her", "HumBio", "", "hope@stanford.edu", "random_user_hope", new ArrayList<String>() {{add("Baking");add("TGBBS"); }}));
+                usersList.add(new User("Neil", "He/him", "English", "German Studies", "neil@stanford.edu", "random_user_neil", new ArrayList<String>() {{add("HarryPotter");add("Movies"); }}));
                 break;
             case "The Clocktower":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.clock_tower_profile));
                 break;
             case "Stanford D.School":
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.clock_tower_profile));
-                conversationsList = new ArrayList<GroupConversation>();
-                conversationsList.add(
-                        new GroupConversation(
-                                "Fiona",
-                                "1",
-                                new ArrayList<String>() {{
-                                    add("HCI");
-                                    add("AndroidDev");
-                                }}));
+                usersList.add(new User(1));
 
                 break;
             default:
                 locationImageView.setImageDrawable((Drawable)getResources().getDrawable(R.drawable.stanford_oval_profile));
-                conversationsList = new ArrayList<GroupConversation>();
         }
 
-        ArrayAdapter<GroupConversation> groupConvoAdapter = new ConverStationProfile.groupConvoArrayAdapter(this, 0, conversationsList);
+        ArrayAdapter<User> groupConvoAdapter = new ConverStationProfile.groupConvoArrayAdapter(this, 0, usersList);
 
         ListView groupConvoContainer = findViewById(R.id.converstation_profile_container);
         groupConvoContainer.setAdapter(groupConvoAdapter);
     }
 
-    public class GroupConversation {
-
-        String hostName;
-        String number;
-        ArrayList<String> topics;
-
-        public GroupConversation(String name, String num, ArrayList<String> t) {
-           hostName = name;
-           number = num;
-           topics = t;
-        }
-    }
-
-    class groupConvoArrayAdapter extends ArrayAdapter<GroupConversation> {
+    class groupConvoArrayAdapter extends ArrayAdapter<User> {
 
         private Context context;
-        private List<GroupConversation> groupConvos;
+        private List<User> groupConvos;
 
         //constructor, call on creation
-        public groupConvoArrayAdapter(Context context, int resource, ArrayList<GroupConversation> objects) {
+        public groupConvoArrayAdapter(Context context, int resource, ArrayList<User> objects) {
             super(context, resource, objects);
 
             this.context = context;
@@ -176,29 +86,33 @@ public class ConverStationProfile extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             //get the property we are displaying
-            GroupConversation currentConvo = groupConvos.get(position);
+            User currentUser = groupConvos.get(position);
 
             //get the inflater and inflate the XML layout for each item
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             View view = inflater.inflate(R.layout.group_conversation, null);
 
             ProfilePicView profileView = view.findViewById(R.id.host_profile);
-            profileView.setImage(currentConvo.hostName);
+            profileView.setImage(currentUser.getImage());
 
             TextView participantsView = view.findViewById(R.id.participants_TextView);
-            participantsView.setText(currentConvo.hostName);
+            participantsView.setText(currentUser.getName());
+
+            Random rand = new Random();
+            rand = new Random();
+            String number = String.valueOf(rand.nextInt(6));
 
             TextView numParticipantsView = view.findViewById(R.id.num_participants_TextView);
-            numParticipantsView.setText(" + " + currentConvo.number + " others are talking about");
-            if (currentConvo.number == "1") {
-                numParticipantsView.setText(" + " + currentConvo.number + " other are talking about");
+            numParticipantsView.setText(" + " + number + " others are talking about");
+            if (number.equals("1")) {
+                numParticipantsView.setText(" + " + number + " other are talking about");
             }
 
             TextView topic1View = view.findViewById(R.id.topic1_textView);
-            topic1View.setText(currentConvo.topics.get(0));
+            topic1View.setText(currentUser.getInterests().get(0));
 
             TextView topic2View = view.findViewById(R.id.topic2_textView);
-            topic2View.setText(currentConvo.topics.get(1));
+            topic2View.setText(currentUser.getInterests().get(1));
 
             return view;
         }
@@ -211,8 +125,15 @@ public class ConverStationProfile extends AppCompatActivity {
     }
 
     public void viewDirections(View v) {
-        Intent myIntent = new Intent(ConverStationProfile.this, MapsActivity.class);
-        myIntent.putExtra("LocationName", locationName);
-        ConverStationProfile.this.startActivity(myIntent);
+        if (locationName.equals("Stanford D.School")) {
+            Intent myIntent = new Intent(ConverStationProfile.this, ArrivedAtConversation.class);
+            myIntent.putExtra("partner", new User(1).toString());
+            ConverStationProfile.this.startActivity(myIntent);
+        }
+        else {
+            Intent myIntent = new Intent(ConverStationProfile.this, MapsActivity.class);
+            myIntent.putExtra("LocationName", locationName);
+            ConverStationProfile.this.startActivity(myIntent);
+        }
     }
 }
