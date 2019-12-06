@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -26,17 +28,27 @@ public class EditProfileActivity extends AppCompatActivity {
 
         nameLayout = findViewById(R.id.nameLayout);
 
-        User user = UserManager.getUser();
+        if(UserManager.userExists())
+        {
+            User user = UserManager.getUser();
 
-        editName.setText(user.getName());
-        editPronouns.setText(user.getPronouns());
-        editMajor.setText(user.getMajor());
-        editMinor.setText(user.getMinor());
-        editEmail.setText(user.getEmail());
-        image = user.getImage();
-        editProfilePic.setImage(image);
-        editInterests.setTags(user.getInterests());
-
+            editName.setText(user.getName());
+            editPronouns.setText(user.getPronouns());
+            editMajor.setText(user.getMajor());
+            editMinor.setText(user.getMinor());
+            editEmail.setText(user.getEmail());
+            image = user.getImage();
+            editProfilePic.setImage(image);
+            editInterests.setTags(user.getInterests());
+        }
+        else
+        {
+            editProfilePic.setImage("userpic0");
+            cancel =  findViewById(R.id.Cancel);
+            cancel.setClickable(false);
+            cancel.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+            cancel.setTextColor(getResources().getColor(android.R.color.secondary_text_dark));
+        }
     }
 
     EditText editName, editPronouns, editMajor, editMinor, editEmail;
@@ -44,12 +56,14 @@ public class EditProfileActivity extends AppCompatActivity {
     TagEditView editInterests;
     String image = "userpic0";
     TextInputLayout nameLayout;
+    Button cancel;
 
     public void saveProfile(View view) {
+        boolean firstTime = !UserManager.userExists();
         if(!validName(editName.getText().toString()))
         {
             nameLayout.setErrorEnabled(true);
-            nameLayout.setError("You need to enter a name");
+            nameLayout.setError("Name is Required");
             return;
         }
 
@@ -62,8 +76,18 @@ public class EditProfileActivity extends AppCompatActivity {
                 editInterests.getTags());
         UserManager.setUser(user);
 
-        Intent intent = new Intent(this, MyProfileActivity.class);
+        Intent intent;
+        if(firstTime)
+        {
+            intent = new Intent(this, MainActivity.class);
+        }
+        else
+        {
+            intent = new Intent(this, MyProfileActivity.class);
+        }
 
+        Toast toast = Toast.makeText(this, "Profile Saved", Toast.LENGTH_LONG);
+        toast.show();
         startActivity(intent);
     }
 

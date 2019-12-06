@@ -41,15 +41,18 @@ public class ResourceManager
 
     public static Bitmap getProfilePic(String image)
     {
+        if(profilePics == null) return null;
         return profilePics.get(image);
     }
 
     public static void drawProfilePic(Canvas canvas, Paint paint, String image, int size, int width)
     {
         int imageRadius = (int)(size * .9);
-        canvas.drawBitmap(getProfilePic(image),
-                null, new Rect(width / 2 - imageRadius, size - imageRadius,
-                        width / 2 + imageRadius, size + imageRadius), null);
+        if(profilePics != null && image.length() > 0) {
+            canvas.drawBitmap(getProfilePic(image),
+                    null, new Rect(width / 2 - imageRadius, size - imageRadius,
+                            width / 2 + imageRadius, size + imageRadius), null);
+        }
         canvas.drawBitmap(border,
                 null, new Rect(width / 2 - imageRadius, size - imageRadius,
                         width / 2 + imageRadius, size + imageRadius), null);

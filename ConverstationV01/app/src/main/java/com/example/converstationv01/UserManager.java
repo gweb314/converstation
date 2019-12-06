@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -57,9 +58,14 @@ public class UserManager{
         user = new User(newUser.toString());
     }
 
+    public static boolean userExists()
+    {
+        return user != null;
+    }
+
     public static User getUser()
     {
-        if(user == null) user = new User(0);
+        if(user == null) user = new User("", "", "", "", "", "userpic0", new ArrayList<String>());
         return new User(user.toString());
     }
 
