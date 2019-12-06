@@ -86,7 +86,33 @@ public class IndividualConversationActivity extends AppCompatActivity {
 
     public void endConvo(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Are you sure you want to end?");
+        builder.setTitle("Are you sure you want to end the conversation?");
+        LayoutInflater inflater = getLayoutInflater();
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Intent intent = new Intent(IndividualConversationActivity.this, MainActivity.class);
+                        Toast.makeText(IndividualConversationActivity.this, "Conversation Ended", Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+                    }
+                });
+        builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Are you sure you want to end the conversation?");
         LayoutInflater inflater = getLayoutInflater();
         builder.setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {

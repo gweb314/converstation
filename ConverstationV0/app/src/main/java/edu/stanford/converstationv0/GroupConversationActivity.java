@@ -68,14 +68,41 @@ public class GroupConversationActivity extends AppCompatActivity {
 
     public void leaveConvo(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Are you sure you want to leave?");
+        builder.setTitle("Are you sure you want to leave the conversation?");
         LayoutInflater inflater = getLayoutInflater();
         builder.setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         Intent intent = new Intent(GroupConversationActivity.this, MainActivity.class);
-                        Toast.makeText(GroupConversationActivity.this, "Conversation Ended", Toast.LENGTH_LONG).show();
+                        Toast.makeText(GroupConversationActivity.this, "Conversation Left", Toast.LENGTH_LONG).show();
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+        builder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Are you sure you want to leave the conversation?");
+        LayoutInflater inflater = getLayoutInflater();
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Intent intent = new Intent(GroupConversationActivity.this, MainActivity.class);
+                        Toast.makeText(GroupConversationActivity.this, "Conversation Left", Toast.LENGTH_LONG).show();
                         startActivity(intent);
                         finish();
                     }
