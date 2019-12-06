@@ -9,15 +9,16 @@
 
     <Button
         android:id="@+id/makeGroup"
-        android:layout_width="222dp"
+        android:layout_width="250dp"
         android:layout_height="65dp"
         android:layout_marginBottom="24dp"
         android:background="@color/colorPrimary"
-        android:onClick="makeGroup"
-        android:text="Make Group"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="24sp"
+        android:onClick="makeGroup"
+        android:text="Make Group"
+
         app:layout_constraintBottom_toTopOf="@id/EndConvo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -25,7 +26,7 @@
 
     <Button
         android:id="@+id/EndConvo"
-        android:layout_width="222dp"
+        android:layout_width="250dp"
         android:layout_height="65dp"
         android:layout_marginBottom="24dp"
         android:onClick="endConvo"
@@ -64,27 +65,16 @@
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="viewProfile"
-        android:text="@string/view_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/partnerName" />
-
-    <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="They are interested in:"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/partnerName" />
 
     <com.example.converstationv01.TagListView
         android:id="@+id/partnerInterests"

@@ -12,54 +12,96 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:text="Found Someone!"
+        android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="32dp"
-        android:text="Found Someone Page"
-        />
-
-    <Button
-        android:id="@+id/viewProfile"
-        android:layout_width="168dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="32dp"
-        android:text="View Profile"
-        app:layout_constraintBottom_toTopOf="@id/startNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:onClick="viewProfile"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/startNavigation"
-        android:layout_width="168dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="250dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/colorPrimary"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:onClick="startNavigation"
         android:text="Start Navigation"
         app:layout_constraintBottom_toTopOf="@id/Cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:onClick="startNavigation"
-        />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/Cancel"
-        android:layout_width="168dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="250dp"
+        android:layout_height="65dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/red"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:onClick="cancel"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:onClick="cancel"
-        />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.example.converstationv01.ProfilePicView
+        android:id="@+id/partnerProfilePic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="viewProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pageTitle"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="They are interested in:"
+        android:textSize="24sp"
+        android:onClick="viewProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/partnerName" />
+
+    <com.example.converstationv01.TagListView
+        android:id="@+id/partnerInterests"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="[Interests]"
+        android:textSize="24dp"
+        android:onClick="viewProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/partnerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="viewProfile"
+        android:text="TextView"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/partnerProfilePic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
