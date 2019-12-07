@@ -146,6 +146,23 @@ public class EditProfileActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        if(UserManager.userExists())
+        {
+            interests = null;
+
+            Intent intent = new Intent(this, MyProfileActivity.class);
+
+            startActivity(intent);
+        }
+        else
+        {
+            super.onBackPressed();
+        }
+    }
+
     private boolean validName(String name)
     {
         if(name.length() == 0) return false;
