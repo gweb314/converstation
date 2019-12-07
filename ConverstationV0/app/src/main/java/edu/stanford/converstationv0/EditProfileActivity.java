@@ -139,6 +139,8 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     public void cancel(View view) {
+        interests = null;
+
         Intent intent = new Intent(this, MyProfileActivity.class);
 
         startActivity(intent);
