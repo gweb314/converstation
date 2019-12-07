@@ -40,9 +40,6 @@ public class User
             pronouns = "She/Her";
             major = "SymSmy";
             minor = "";
-            interests.add("D&D");
-
-            interests.add("Creative Writing");
             interests.add("Drawing");
             interests.add("Fantasy");
 
